@@ -1,16 +1,23 @@
-from flask import Flask, render_template, request, redirect, jsonify
+from flask import Flask, render_template, request, redirect, jsonify, session, url_for
 from pymongo import MongoClient
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
+app.secret_key = 'any random string'
 
-# 메인 페이지
 
 
-@app.route('/')
-def index():
+
+# 로그인
+@app.route('login', method = ["get"])
+def login():
     return render_template('login.html')
 
+
+
+# 로그아웃
+@app.route('login', method = ["get"])
+def login():
 
 # 회원가입
 
