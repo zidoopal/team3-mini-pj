@@ -46,12 +46,16 @@ def login():
     return user_login()
 
 
+
+
+# 구글 소셜로그인 기능
+
 # tokengetter 함수
 @google.tokengetter
 def get_google_oauth_token():
     return session.get('google_token')
 
-# 구글 소셜로그인 기능
+# 구글 소셜 로그인
 @app.route('/login/google', methods=['GET', 'POST'])
 def login_google():
     return google.authorize(callback=url_for('authorized', _external=True))
@@ -75,7 +79,7 @@ def authorized():
         }
         db.users.insert_one(user)
 
-    return render_template('index.html')
+    return redirect(url_for('get_main_page'))
 
 
 # 회원 인증 기능
