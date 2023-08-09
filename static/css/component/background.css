@@ -1,5 +1,5 @@
 /* 백 그라운드 */
-.container {
+.background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,9 +16,10 @@
   background: var(--beige);
   border-radius: 20px;
   display: flex;
-  padding: 20px 0px;
-  justify-content: space-between;
+  flex-direction: column; /* 세로 방향으로 요소를 배치 */
+  padding: 20px;
 }
+
 .dashboard > * {
   border-radius: 20px;
 }
