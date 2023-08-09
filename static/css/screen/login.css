@@ -9,13 +9,10 @@ h3 {
   font-weight: 600;
 }
 
-<<<<<<< Updated upstream
 a {
   text-decoration: none;
   color: black;
 }
-=======
->>>>>>> Stashed changes
 .container {
   display: flex;
   justify-content: center;
@@ -24,7 +21,6 @@ a {
   width: 100vw;
   background-color: var(--ivory);
 }
-
 .wrapper {
   min-width: 1200px;
   min-height: 95%;
@@ -36,7 +32,6 @@ a {
   width: 70%;
   height: 60%;
 }
-
 .main__left {
   flex: 1.5;
   min-width: 720px;
@@ -60,19 +55,16 @@ a {
   flex-direction: column;
   justify-self: start;
 }
-
 .right__body {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .right__body__big-input-wrapper {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
-
 .right__body__input-wrapper {
   display: flex;
   flex-direction: column;
@@ -86,7 +78,6 @@ a {
   width: 100%;
   justify-content: start;
 }
-
 .body__input {
   border: none;
   height: 36px;
@@ -128,7 +119,6 @@ a {
   justify-content: end;
 }
 
-
 .google-btn {
   display: flex;
   justify-content: center;
@@ -148,11 +138,10 @@ a {
   margin-right: 10px;
 }
 
-
 .kakao-btn {
   display: flex;
   justify-content: center;
-  background-color: #FFEB00;
+  background-color: #ffeb00;
   color: black;
   border-radius: 20px;
   padding: 10px 20px;
