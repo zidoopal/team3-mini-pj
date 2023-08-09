@@ -1,4 +1,5 @@
-from flask import request, jsonify, make_response, render_template
+from flask import request, jsonify, make_response, render_template, redirect, url_for, session
+from flask_oauthlib.client import OAuth
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import jwt
@@ -8,10 +9,11 @@ import certifi
 import os
 from dotenv import load_dotenv
 load_dotenv()
-
 MONGO_USER = os.environ.get('MONGO_USER')
 MONGO_PASS = os.environ.get('MONGO_PASS')
 SECRET_KEY = os.environ.get('SECRET_KEY')
+GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
+GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET')
 
 # 몽고DB 연결
 ca = certifi.where()
@@ -59,6 +61,7 @@ def verify_token():
 
 # 로그아웃 함수
 def user_logout():
-    return 
-
+    resp = make_response("로그아웃 완료")
+    resp.set_cookie('AccessToken', '', expires=0)
+    return resp
 
