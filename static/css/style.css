@@ -7,7 +7,7 @@
 @import '../css/variables.css';
 
 /* Components */
-@import '../css/component/main.css';
+@import '../css/component/backgorund.css';
 
 /* Screens */
 @import '../css/screen/login.css';
