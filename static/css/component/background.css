@@ -10,16 +10,16 @@
 
 /* 메인 대시보드 */
 .dashboard {
-  width: 90%;
-  max-width: 1400px;
+  min-width: 1200px;
+  width: 70%;
   height: 95%;
   background: var(--beige);
   border-radius: 20px;
   display: flex;
   flex-direction: column; /* 세로 방향으로 요소를 배치 */
-  padding: 20px;
+  padding: 30px;
 }
 
-.dashboard > * {
+* {
   border-radius: 20px;
 }
