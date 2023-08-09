@@ -61,6 +61,7 @@ def verify_token():
 
 # 로그아웃 함수
 def user_logout():
-    return 
-
+    resp = make_response("로그아웃 완료")
+    resp.set_cookie('AccessToken', '', expires=0)
+    return resp
 
