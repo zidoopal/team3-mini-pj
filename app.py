@@ -1,23 +1,28 @@
-from flask import Flask, render_template, request, redirect, jsonify, session, url_for
-from pymongo import MongoClient
+from flask import Flask, render_template
+from login import user_login, user_logout
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
-app.secret_key = 'any random string'
 
+# 메인페이지 렌더링
+@app.route('/', methods = ['GET'])
+def get_main_page():
+    return render_template('index.html')
 
-
-
-# 로그인
-@app.route('login', method = ["get"])
-def login():
+# 로그인페이지 렌더링
+@app.route('/login', methods = ['GET'])
+def get_login_page():
     return render_template('login.html')
 
-
-
-# 로그아웃
-@app.route('login', method = ["get"])
+# 로그인 기능
+@app.route('/login', methods=['POST'])
 def login():
+    return user_login()
+
+# 로그아웃 기능
+# @app.route('/logout', method = ['POST'])
+# def logout():
+#     return user_logout()
 
 # 회원가입
 
@@ -31,5 +36,4 @@ def login():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5000, debug=True)
-    # app.run()
+    app.run('0.0.0.0', port=5002, debug=True)
