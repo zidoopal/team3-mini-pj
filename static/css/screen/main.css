@@ -1,89 +1,89 @@
-/* Wrapper Style Code  */
-.wrapper {
+/* 헤더 */
+header {
   width: 100%;
-  height: 100vh;
-  background: #fefcf3;
+  height: 10%;
+  min-height: 80px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 768px;
-}
-
-/* Main Contents Box Style Code */
-.dashboard {
-  width: 90%;
-  max-width: 1280px;
-  height: 90%;
-  background: #f5ebe0;
-  /* box-shadow: 0 0 128px 0 rgb(0 0 0 / 10%), 0 32px 64px -48px rgb(0 0 0 / 50%); */
-  border-radius: 30px;
-  display: flex;
-  padding: 20px 0px;
   justify-content: space-between;
-}
-.dashboard > * {
-  border-radius: 20px;
+  align-items: center;
+  margin: 0px auto;
+  padding: 0px 30px;
+  color: var(--ivory);
+  background: var(--deep-pink);
+  position: sticky;
 }
 
-/* sidebar Contents Style Code */
-/* aside {
-  width: 5%;
-  height: 80%;
-  background: #dba39a;
+header ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+header li {
+  display: inline-block;
+  margin: 0px 25px;
+}
+
+/* 섹션 컨테이너 */
+.section-container {
+  /* background-color: aqua; */
+  display: flex;
+  width: 100%; /* aside와 합쳐지는 너비를 조절하여 section의 크기 설정 */
+  height: 90%;
+  margin-top: 30px;
+}
+
+/* 사이드 바 */
+aside {
+  width: 8%;
+  min-width: 100px;
+  height: 100%;
+  background: var(--yellow-green);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  padding: 30px 0;
-  margin: auto 20px;
+  padding: 40px 0;
+}
+aside ul {
+  list-style-type: none;
+  padding: 0;
 }
 aside i {
-  color: #fefcf3;
-} */
+  color: var(--ivory);
+  margin-bottom: 70px;
+}
 
-/* 건드리는중ㅇㅇㅇㅇㅇㅇㅇ */
-/* Graph-ui Contents Style Code */
+section {
+  display: flex;
+  justify-content: end;
+  width: 92%;
+  height: 100%;
+  margin-left: 20px;
+  background: #f3d7ca;
+}
+
 /* .graph-ui {
   width: calc(58% - 24px);
   height: 100%;
-  margin: 0px auto;
+  background-color: aqua;
 }
 .graph-ui > div {
   width: 100%;
-  height: 33.33%;
-  border-radius: 20px;
+  height: 23%;
+  background-color: tomato;
 }
-
-.graph-ui > div.each-photo {
-  padding: 20px 0;
-}
-.graph-ui > div.each-photo > div {
+.graph-ui .each-pofol .each-graph {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
-}
-.graph-ui .each-photo .each-title {
-  width: 100%;
-  height: 25%;
-}
-.graph-ui .each-photo .each-graph {
-  width: 100%;
-  height: 75%;
   display: flex;
   justify-content: space-between;
+  background-color: aquamarine;
 }
-.graph-ui .each-photo .each-graph div {
+.graph-ui .each-pofol .each-graph div {
   height: 100%;
   border: 1px solid #f7f7f7;
   border-radius: 20px;
   box-shadow: 0px 0px 3px #ccc;
   background: #fff;
   width: calc(25% - 8.5px);
-} */
-
-/* Table-ui Contents Style Code */
-/* .table-ui {
-  width: 35%;
-  height: 100%;
-  background: #f5ebe0;
 } */
