@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from login import user_login, user_logout
+from login import user_login, user_logout, verify_token
 
 # Flask 객체 인스턴스 생성
 app = Flask(__name__)
@@ -18,6 +18,11 @@ def get_login_page():
 @app.route('/login', methods=['POST'])
 def login():
     return user_login()
+
+# 회원 인증 기능
+@app.route('/auth/verify', methods=['POST'])
+def verify_user():
+    return verify_token()
 
 # 로그아웃 기능
 # @app.route('/logout', method = ['POST'])

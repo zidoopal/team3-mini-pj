@@ -37,10 +37,28 @@ def user_login():
         'exp': datetime.utcnow() + timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
     }
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
-    resp.set_cookie("accesstoken", token)
+    resp.set_cookie("AccessToken", token)
     return resp
+
+
+# 토큰 검증 함수
+def verify_token():
+    token = request.cookies.get('AccessToken')
+    if not token:
+        return jsonify({"message": "토큰이 존재하지 않습니다.", "authenticated": False}), 401
+
+    try:
+        # 토큰 검증
+        decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return jsonify({"message": "OK", "authenticated": True}), 200
+    except jwt.ExpiredSignatureError:
+        return jsonify({"message": "만료된 토큰입니다.", "authenticated": False}), 401
+    except jwt.InvalidTokenError:
+        return jsonify({"message": "올바르지 않은 토큰입니다.", "authenticated": False}), 401
 
 
 # 로그아웃 함수
 def user_logout():
     return 
+
+
