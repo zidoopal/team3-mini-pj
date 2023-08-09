@@ -17,7 +17,7 @@ google = oauth.remote_app(
     consumer_key=os.environ.get('GOOGLE_CLIENT_ID'),
     consumer_secret=os.environ.get('GOOGLE_CLIENT_SECRET'),
     request_token_params={
-        'scope': 'email',
+        'scope': 'email https://www.googleapis.com/auth/user.birthday.read https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile',
     },
     base_url='https://www.googleapis.com/oauth2/v1/',
     request_token_url=None,
@@ -56,8 +56,6 @@ def login():
     return user_login()
 
 
-
-
 # 구글 소셜로그인 기능
 
 # tokengetter 함수
@@ -80,14 +78,15 @@ def authorized():
     print(user_info)
 
     # 사용자 DB에서 이메일로 사용자를 찾습니다.
-    user = db.users.find_one({'email': user_info['email']})
+    user = db.google_users.find_one({'email': user_info['email']})
     
     # 사용자가 DB에 없으면 새로운 사용자를 추가합니다.
     if not user:
         user = {
             "email": user_info["email"],
+            "name": user_info['name']
         }
-        db.users.insert_one(user)
+        db.google_users.insert_one(user)
 
     # 메인 페이지로 리다이렉트하기 전에 쿠키에 액세스 토큰을 저장합니다.
     resp = make_response(redirect(url_for('get_main_page')))
@@ -113,17 +112,21 @@ def kakao_authorized():
     print(kakao_user_info.data)
 
     email = kakao_user_info.data.get('kakao_account', {}).get('email')
+    nickname = kakao_user_info.data.get('properties', {}).get('nickname')
+
     if not email:
         return "이메일 정보를 가져올 수 없습니다."
 
-    user = db.users.find_one({'email': email})
+    # 사용자 DB에서 이메일로 사용자를 찾습니다.
+    user = db.kakao_users.find_one({'email': email})
     
     # 사용자가 DB에 없으면 새로운 사용자를 추가합니다.
     if not user:
         user = {
             "email": email,
+            "name": nickname
         }
-        db.users.insert_one(user)
+        db.kakao_users.insert_one(user)
 
     # 메인 페이지로 리다이렉트하기 전에 쿠키에 액세스 토큰을 저장합니다.
     resp = make_response(redirect(url_for('get_main_page')))
@@ -144,7 +147,6 @@ def verify_token():
     # 토큰이 구글 토큰인지 확인
     if token.startswith('google_'):
         print('구글 토큰')
-
         return jsonify({"message": "OK", "authenticated": True}), 200
     
     # 토큰이 카카오 토큰인지 확인
