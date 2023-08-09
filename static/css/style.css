@@ -10,8 +10,6 @@
 @import '../css/component/background.css';
 
 /* Screens */
-@import '../css/screen/login.css';
-@import '../css/screen/detail.css';
-@import '../css/screen/create-post.css';
-@import '../css/screen/signup.css';
-@import '../css/screen/main.css';
+@import 'screen/detail.css';
+@import 'screen/create-post.css';
+@import 'screen/main.css';
