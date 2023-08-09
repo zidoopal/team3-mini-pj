@@ -2,6 +2,7 @@ from flask import Flask, render_template
 from login import *
 import os
 from flask_oauthlib.client import OAuth
+import jwt
 
 
 
@@ -79,13 +80,38 @@ def authorized():
         }
         db.users.insert_one(user)
 
-    return redirect(url_for('get_main_page'))
+    # 메인 페이지로 리다이렉트하기 전에 쿠키에 액세스 토큰을 저장합니다.
+    resp = make_response(redirect(url_for('get_main_page')))
+    resp.set_cookie('AccessToken', 'google_' + response['access_token'])
+    return resp
 
 
 # 회원 인증 기능
 @app.route('/auth/verify', methods=['POST'])
-def verify_user():
-    return verify_token()
+def verify_token():
+    # 쿠키에서 AccessToken을 가져옵니다.
+    token = request.cookies.get('AccessToken')
+    
+    if not token:
+        return jsonify({"message": "토큰이 존재하지 않습니다.", "authenticated": False}), 401
+
+    # 토큰이 구글 토큰인지 확인
+    if token.startswith('google_'):
+        print('구글토큰')
+        # 여기서 필요한 경우 Google API를 호출하여 토큰을 검증할 수 있습니다.
+        # (이 부분은 구현하지 않았습니다. 실제로는 구글 API를 이용하여 토큰을 검증해야 합니다.)
+        return jsonify({"message": "OK", "authenticated": True}), 200
+
+    try:
+        # 일반 토큰 검증
+        decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        return jsonify({"message": "OK", "authenticated": True}), 200
+    except jwt.ExpiredSignatureError:
+        return jsonify({"message": "만료된 토큰입니다.", "authenticated": False}), 401
+    except jwt.InvalidTokenError:
+        return jsonify({"message": "올바르지 않은 토큰입니다.", "authenticated": False}), 401
+
+
 
 # 로그아웃 기능
 @app.route('/logout', methods = ['POST'])

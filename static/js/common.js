@@ -31,7 +31,6 @@ function checkLoginStatus() {
   } else {
     // 토큰 없음, 로그아웃 상태
     console.log("로그인되지 않은 유저");
-    redirectUnauthenticatedUser();
     return false;
   }
 }
