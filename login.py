@@ -12,8 +12,7 @@ load_dotenv()
 MONGO_USER = os.environ.get('MONGO_USER')
 MONGO_PASS = os.environ.get('MONGO_PASS')
 SECRET_KEY = os.environ.get('SECRET_KEY')
-GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
-GOOGLE_CLIENT_SECRET = os.environ.get('GOOGLE_CLIENT_SECRET')
+
 
 # 몽고DB 연결
 ca = certifi.where()
