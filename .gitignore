@@ -3,3 +3,6 @@ venv/
 
 # vs code setting
 .vscode/
+
+# 환경변수
+.env
