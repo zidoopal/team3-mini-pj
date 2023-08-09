@@ -138,3 +138,23 @@ a {
   width: 20px;
   margin-right: 10px;
 }
+
+
+.kakao-btn {
+  display: flex;
+  justify-content: center;
+  background-color: #FFEB00;
+  color: black;
+  border-radius: 20px;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+}
+
+.kakao-btn img {
+  width: 20px;
+  margin-right: 10px;
+}
