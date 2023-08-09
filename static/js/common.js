@@ -21,33 +21,43 @@ function checkLoginStatus() {
           // document.querySelector(".login-button").style.display = "none";
         } else {
           // 인증 실패
-          // document.querySelector(".logout-button").style.display = "none";
-          // document.querySelector(".login-button").style.display = "block";
+          redirectUnauthenticatedUser();
         }
       })
       .catch((error) => {
-        console.error("인증 실패:", error);
-        if (error.message === "Unauthorized") {
-          deleteCookie("AccessToken");
-          window.location.href = "/login";
-        } else {
-          alert("인증 중 오류 발생");
-        }
+        console.error("인증 중 오류 발생:", error);
+        redirectUnauthenticatedUser();
       });
   } else {
     // 토큰 없음, 로그아웃 상태
     console.log("로그인되지 않은 유저");
-    // document.querySelector(".logout-button").style.display = "none";
-    // document.querySelector(".login-button").style.display = "block";
+    redirectUnauthenticatedUser();
+    return false;
   }
 }
 
+// 인증되지 않은 유저가 접근했을 경우 실행되는 코드 또는 로그인이 필요한 기능
+function redirectUnauthenticatedUser() {
+  if (window.location.pathname === "/create-post") {
+    alert("로그인이 필요한 기능입니다. 로그인 후 이용해주세요.");
+    window.location.href = "/login";
+  } else {
+    // document.querySelector(".logout-button").style.display = "none";
+    // document.querySelector(".login-button").style.display = "block";
+    alert("올바르지 않은 접근입니다. 로그인 후 이용해주세요.");
+    deleteCookie("AccessToken");
+    window.location.href = "/login";
+  }
+}
+
+// 쿠키 가져오는 함수
 function getCookie(name) {
   const value = `; ${document.cookie}`;
   const parts = value.split(`; ${name}=`);
   if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
+// 올바르지 않은 토큰 또는 로그아웃 시 쿠키 제거하는 함수
 function deleteCookie(name) {
   document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 }
