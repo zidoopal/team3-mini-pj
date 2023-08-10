@@ -24,7 +24,6 @@ def s3_connection():
         s3 = boto3.client(
             service_name="s3",
             region_name="ap-northeast-2",
-
             aws_access_key_id = os.environ.get("AWS_S3IMAGE_ACCESS_KEY_ID"),
             aws_secret_access_key=os.environ.get("AWS_S3IMAGE_SECERT_ACCESS_KEY"),
         )
@@ -47,7 +46,6 @@ s3 = s3_connection()
 # 이미지파일 S3에 저장 / 노래 제목, 가수, 이미지 url, 작성자는 db에 저장
 @app.route("/upload", methods=["POST"])
 def api_write():
-
     # html에서 가져온 정보
     file = request.files['image_give']
     title_receive = request.form['song_title_give']
@@ -69,23 +67,10 @@ def api_write():
         'user': '',
         'song_title': title_receive,
         'artist': artist_receive,
-        'img_url': ''
+        'img_url': image_url
     }
     db.posts.insert_one(doc)
-
-    # S3에 저장할 파일 이름 지정
-    filename = file.filename.split('.')[0]
-    ext = file.filename.split('.'[-1])
-    img_name = datetime.now().strftime(f"{filename}-%Y-%m-%d-%H-%S.{ext}")
-
-    # S3 버킷에 업로드
-    success = s3_put_object(s3,'group3artistimage',file,img_name)
-    
-    if success:
-        return jsonify({'msg': '저장 완료!'})
-    else:
-        return jsonify({'msg': '저장 실패!'}), 500
-
+    return jsonify({'msg': '저장 완료!'})
 
 def s3_put_object(s3, bucket, file, filename):
     try:

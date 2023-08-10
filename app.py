@@ -30,6 +30,10 @@ def get_login_page():
 def get_detail_page(id):
     return render_template('detail.html')
 
+@app.route('/create-post', methods = ['GET'])
+def get_createPost_page():
+    return render_template('createPost.html')
+
 # 로그인 기능
 @app.route('/login', methods=['POST'])
 def login():
