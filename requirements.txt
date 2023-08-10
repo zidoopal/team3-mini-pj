@@ -1,0 +1,10 @@
+flask
+pymongo
+dnspython
+jwt
+certifi
+requests
+Flask-OAuthlib
+python-dotenv
+gunicorn
+boto3
