@@ -1,21 +1,22 @@
 'use strict';
 
-// 홈 으로 이동
-const homeIcon = document.querySelector('.fa-house');
+// 홈 (main)으로 이동
+const homeIcon = document.querySelector('#nav-main-button');
 
 function homeHandler() {
   if (true) {
-    window.location.href = 'http://127.0.0.1:5501/templates/index.html';
+    window.location.href = 'http://plipli.site/';
   }
 }
 homeIcon.addEventListener('click', homeHandler);
 
 // 작성 페이지 이동
-const writeIcon = document.querySelector('.fa-pen');
+const writeIcon = document.querySelector('#nav-write-button');
 
 function writeHandler() {
   if (true) {
-    window.location.href = 'http://127.0.0.1:5501/templates/createPost.html';
+    // 작성 도메인 아직??
+    window.location.href = 'http://plipli.site/create-post';
   }
 }
 
