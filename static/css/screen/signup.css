@@ -9,6 +9,25 @@ h3 {
   font-weight: 600;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #555555;
+}
+
+
+a:active {
+  color: #d3938a;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -115,19 +134,99 @@ h3 {
   align-items: center;
   font-size: 1rem;
 }
-
+.signup__button:hover{
+  background-color: #d3938a; /* 호버 배경색 */
+}
 .right__footer {
   display: flex;
   justify-content: end;
+}
+
+
+
+
+.email_input_container {
+  display: flex;
+  align-items: center;
+  width: 105%;
+  margin: 0px;
+  padding: 0px;
+}
+
+.email_validation_button {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  background-color: #111111;
+  color: white;
+  border-radius: 8px;
+  padding: 10px 8px;
+  border: none;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  font-size: 1rem;
+  margin-left: 5px;
+}
+
+.email_validation_button:hover {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.email_input {
+  flex: 3;
+  height: 36px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--deep-pink);
+  padding: 0px 8px;
+
+  margin-right: 5px;
+}
+
+.verification_container {
+  padding-top: 10px;
+  display: none;
+}
+
+.verification_input {
+  width: 50%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+
+.verification_button {
+  padding: 10px;
+  margin-left: 5px;
+  background-color: var(--deep-pink); /* 배경색 */
+  color: black;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.verification_button:hover {
+  background-color: #d3938a; /* 호버 배경색 */
+}
+
+.comp_msg{
+
+  color: #00dd00;
+  font-size: 15px;
+}
+
+.input_validation_error {
+  border-color: #ff5555;
 }
 
 .validation_error_msg {
   display: flex;
   width: 100%;
   justify-content: start;
-  color:  #ff4444;
+  color: #ff4444;
 }
 
-.input_validation_error {
-  border-color: #ff5555;
-}

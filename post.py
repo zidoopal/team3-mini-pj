@@ -24,8 +24,8 @@ def s3_connection():
         s3 = boto3.client(
             service_name="s3",
             region_name="ap-northeast-2",
-            aws_access_key_id = os.environ.get("AWS_ACCESS_KEY_ID"),
-            aws_secret_access_key=os.environ.get("AWS_SECERT_ACCESS_KEY"),
+            aws_access_key_id = os.environ.get("AWS_S3IMAGE_ACCESS_KEY_ID"),
+            aws_secret_access_key=os.environ.get("AWS_S3IMAGE_SECERT_ACCESS_KEY"),
         )
     except Exception as e:
         print(e)
@@ -42,9 +42,6 @@ s3 = s3_connection()
 # except Exception as e:
 #     print(e)
 
-@app.route('/', methods = ['GET'])
-def get_main_page():
-    return render_template('createPost.html')
 
 # 이미지파일 S3에 저장 / 노래 제목, 가수, 이미지 url, 작성자는 db에 저장
 @app.route("/upload", methods=["POST"])
@@ -91,10 +88,3 @@ def s3_put_object(s3, bucket, file, filename):
     except Exception as e:
         print(e)
         return False
-
-@app.route('/main', methods = ['GET'])
-def get_index_page():
-    return render_template('index.html')
-
-if __name__ == '__main__':
-    app.run('0.0.0.0', port=5002, debug=True)

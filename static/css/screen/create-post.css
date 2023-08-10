@@ -22,6 +22,7 @@
   border-radius: 10px;
 }
 
+
 .info {
   display: flex;
   flex-direction: column;
@@ -33,6 +34,7 @@
   justify-content: center;
   margin: 30px;
 }
+
 
 .user>p, .song_title_input>p, .artist_input>p {
   margin-right: 20px;
