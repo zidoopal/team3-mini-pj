@@ -64,6 +64,8 @@ section {
   max-height: 100%;
   border: 2px solid var(--deep-pink);
   box-shadow: 0 0 10px 0 rgba(224, 123, 123, 0.4);
+  position: relative;
+  overflow: hidden;
 }
 
 /* 사진 섹션 - 가수 사진 */
@@ -73,10 +75,6 @@ section {
   min-width: 100%;
   max-height: 73%;
   min-height: 73%;
-
-  position: relative;
-  overflow: hidden;
-
   display: flex;
   justify-content: center;
   align-items: center;
