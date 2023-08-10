@@ -14,6 +14,7 @@ const signup = () => {
 
 
     fetch('/signup', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+        alert(data['msg'])
         // 이메일 유효성 검증
         if (data['msg'] == '유효하지 않은 이메일 입니다!') {
             let error_html = `<div class="validation_error_msg">${data['msg']}</div>`
@@ -56,6 +57,7 @@ const signup = () => {
         }
 
         else if (data['msg'] == '회원가입이 완료되었습니다!') {
+            
             window.location.href = "/login"
         }
 
