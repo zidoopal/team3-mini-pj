@@ -1,0 +1,33 @@
+.wirtebox_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wirte_box {
+  width: 500px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--ivory);
+}
+
+.wirte_box>h2 {
+  background-color: var(--deep-pink);
+  padding: 10px;
+  border: solid 0px;
+  border-radius: 10px;
+}
+
+.user, .song_title, .artist  {
+  display: flex;
+  justify-content: center;
+  margin: 30px;
+}
+
+.user>p, .song_title>p, .artist>p {
+  margin-right: 20px;
+}
