@@ -1,111 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>상세 페이지</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="stylesheet" href="../static/css/style.css" />
-</head>
-<body>
-  
-  <div class="background">
-    <div class="dashboard">
-      <!-- 헤더 -->
-      <header>
-        <nav>
-          <div>
-            <!-- cd icon -->
-            <h1><i class="fa-solid fa-compact-disc fa-2xl"></i></h1>
-          </div>
+    <!-- CSS 파일 연결 -->
+    <link rel="stylesheet" href="../static/css/style.css" />
 
-          <div>
-            <a href="#"><h1>플리 플리</h1></a>
-          </div>
-
-          <div>
-            <ul>
-              <!-- mypage icon -->
-              <a href="#"
-                ><li><i class="fa-solid fa-user fa-2xl"></i></li
-              ></a>
-              <!-- login icon -->
-              <a href="#"
-                ><li><i class="fa-solid fa-right-to-bracket fa-2xl"></i></li
-              ></a>
-            </ul>
-            <!-- logout icon -->
-            <!-- <li>
-              <a href="#"
-                ><i class="fa-solid fa-right-from-bracket fa-2xl"></i
-              ></a>
-            </li> -->
-          </div>
-        </nav>
-      </header>
-
-      <!-- 섹션 컨테이너  -->
-      <div class="section-container">
-        <!-- 사이드 바 -->
-        <aside>
+    <!-- JS 파일 연결 -->
+    <script src="../static/js/common.js" type="module" defer></script>
+    <script src="../static/js/detail.js" type="module" defer></script>
+  </head>
+  <body>
+    <div class="background">
+      <div class="dashboard">
+        <!-- 헤더 -->
+        <header>
           <nav>
-            <!-- 흠 ㅠㅠ 홈키? 작성? 뭔가 위치가 맘에안듬 일단 넣고본다 -->
             <div>
-              <ul>
-                <li>
-                  <!-- home icon -->
-                  <a href="#"><i class="fa-solid fa-house fa-2xl"></i></a>
-                </li>
-                <li>
-                  <!-- write icon -->
-                  <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                  <!-- <a href="#"><i class="fa-solid fa-eraser fa-2xl"></i></a> -->
-                </li>
-              </ul>
+              <!-- cd icon -->
+              <h1><i class="fa-solid fa-compact-disc fa-2xl"></i></h1>
+            </div>
+
+            <div>
+              <a href="#"><h1>플리 플리</h1></a>
             </div>
 
             <div>
               <ul>
-                <!-- note icon -->
-                <li><i class="fa-solid fa-music fa-2xl"></i></li>
+                <!-- signUp icon -->
+                <li>
+                  <i
+                    class="fa-solid fa-user-plus fa-2xl"
+                    id="nav-signup-button"
+                  ></i>
+                </li>
+                <!-- mypage icon -->
+                <!-- <li>
+                <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
+              </li> -->
+
+                <!-- login icon -->
+                <li>
+                  <i
+                    class="fa-solid fa-right-to-bracket fa-2xl"
+                    id="nav-login-button"
+                  ></i>
+                </li>
+
+                <!-- logout icon -->
+                <!-- <li>
+                <i
+                  class="fa-solid fa-right-from-bracket fa-2xl"
+                  id="nav-logout-button"
+                ></i>
+              </li> -->
               </ul>
+
+              <!-- login icon -->
             </div>
           </nav>
-        </aside>
-        
-        <div class="detail__container">
-          <div class="detail__body">
-            <div class="detail__left">
-              <div class="detail__image"><img src="" alt="detail-image"/></div>
-              <div class="detail__date">
-                <p>작성 날짜</p>
+        </header>
+
+        <!-- 섹션 컨테이너  -->
+        <div class="section-container">
+          <!-- 사이드 바 -->
+          <aside>
+            <nav>
+              <div>
+                <ul>
+                  <li>
+                    <!-- home icon -->
+                    <i
+                      class="fa-solid fa-house fa-2xl"
+                      id="nav-main-button"
+                    ></i>
+                  </li>
+                  <li>
+                    <!-- write icon -->
+                    <i class="fa-solid fa-pen fa-2xl" id="nav-write-button"></i>
+                  </li>
+                </ul>
               </div>
-              <div class="detail__user">
-                <p>작성자</p>
+
+              <div>
+                <ul>
+                  <!-- note icon -->
+                  <li><i class="fa-solid fa-music fa-2xl"></i></li>
+                </ul>
               </div>
-              <div class="detail__content">
-                <p>본문</p>
-              </div>
-            </div>
-            <div class="detail__right">
-              <div class="detail__right__header">댓글을 달아주세요</div>
-              <div class="detail__right__body" id="comment-container">
-                <div class="detail__comment" id="comment">
-                  <div class="detail__comment_user-wrapper">
-                    <div class="detail__comment__profile">작성자 프로필</div>
-                    <div class="detail__comment__user">작성자</div>
-                  </div>
-                  <div class="detail__comment__content">내용</div>
+            </nav>
+          </aside>
+          <div class="detail__container">
+            <div class="detail__body">
+              <div class="detail__left">
+                <div class="detail__image"><img src="" alt="detail-image"/></div>
+                <div class="detail__date">
+                  <p>작성 날짜</p>
+                </div>
+                <div class="detail__user">
+                  <p>작성자</p>
+                </div>
+                <div class="detail__content">
+                  <p>본문</p>
                 </div>
               </div>
-              <div class="detail__right__footer">
-                <input class="comment__input" type="text"/>
-                <button class="comment__button" >댓글달기</button>
+              <div class="detail__right">
+                <div class="detail__right__header">댓글을 달아주세요</div>
+                <div class="detail__right__body" id="comment-container">
+                  <div class="detail__comment" id="comment">
+                    <div class="detail__comment_user-wrapper">
+                      <div class="detail__comment__profile">작성자 프로필</div>
+                      <div class="detail__comment__user">작성자</div>
+                    </div>
+                    <div class="detail__comment__content">내용</div>
+                  </div>
+                </div>
+                <div class="detail__right__footer">
+                  <input class="comment__input" type="text"/>
+                  <button class="comment__button" >댓글달기</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
+    </div>
+        
+        
         <script
         src="https://kit.fontawesome.com/caa7486ade.js"
         crossorigin="anonymous"
