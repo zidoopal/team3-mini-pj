@@ -1,6 +1,7 @@
 from flask import request, jsonify, make_response, render_template
 from pymongo import MongoClient
 from datetime import datetime, timedelta
+from hash import hash_password
 import jwt
 import certifi
 
@@ -28,7 +29,7 @@ def user_login():
     if not user:
         return jsonify({'message': '등록되지 않은 회원입니다.'}), 401
 
-    if user['password'] != password:
+    if user['password'] != hash_password(password):
         return jsonify({'message': '비밀번호가 일치하지 않습니다.'}), 401
 
     resp = make_response(render_template('index.html'))
