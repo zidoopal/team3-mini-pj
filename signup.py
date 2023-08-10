@@ -18,12 +18,18 @@ client = MongoClient(f'mongodb+srv://{MONGO_USER}:{MONGO_PASS}@cluster0.ebm0gtg.
 db = client.miniproject
 
 def user_signup():
-    email = request.form['email_give']
-    password = request.form['password_give']
-    confirmPassword = request.form['confirmPassword_give']
-    nickname = request.form['nickname_give']
+    email = request.form['email_give'].strip()
+    password = request.form['password_give'].strip()
+    confirmPassword = request.form['confirmPassword_give'].strip()
+    nickname = request.form['nickname_give'].strip()
+
+    print(email,password,confirmPassword,nickname)
 
     ## 로그인 검증
+    # 이메일 입력 검사
+    if(email == ''):
+        return jsonify({'msg':'이메일을 입력해주세요!'}), 401
+
     # 이메일 유효성 검사
     try :
         validate_email(email)
@@ -34,12 +40,11 @@ def user_signup():
     findUser = db.users.find_one({'email': email} ,{'_id':False})
     if(findUser):
         return jsonify({'msg':'이미 등록된 이메일 입니다!'}), 401
-
-     # 중복 닉네임 검사
-    findUser = db.users.find_one({'nickname': nickname} ,{'_id':False})
-    if(findUser):
-        return jsonify({'msg':'이미 등록된 닉네임 입니다!'}), 401
     
+    # 비밀번호 입력 검사
+    if(password == ''):
+        return jsonify({'msg':'비밀번호를 입력해주세요!'}), 401
+
     # 비밀번호 길이 검사
     if len(password) < 5 or len(password) > 20:
         return jsonify({'msg':'비밀번호는 5자리 이상 20자리 이하로 해주세요!'}), 401
@@ -47,6 +52,19 @@ def user_signup():
     # 비밀번호 확인 일치 검사
     if(password != confirmPassword):
         return jsonify({'msg':'비밀번호가 일치하지 않습니다!'}), 401
+    
+    # 닉네임 입력 검사
+    if(nickname == ''):
+        return jsonify({'msg':'닉네임을 입력해주세요!'}), 401
+    
+    # 닉네임 길이 검사
+    if len(password) > 20:
+        return jsonify({'msg':'닉네임은 20자리 이하로 해주세요!'}), 401
+    
+    # 중복 닉네임 검사
+    findUser = db.users.find_one({'nickname': nickname} ,{'_id':False})
+    if(findUser):
+        return jsonify({'msg':'이미 등록된 닉네임 입니다!'}), 401
         
         
     # 비밀번호를 해시 함수로 암호화하고 저장
