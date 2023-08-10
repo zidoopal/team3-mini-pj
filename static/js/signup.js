@@ -141,10 +141,7 @@ const emailValidation = () => {
                 $('.verification_container').fadeIn();
             }
         })
-
     }
-
-
 }
 
 signupBtn.addEventListener("click", signup);
