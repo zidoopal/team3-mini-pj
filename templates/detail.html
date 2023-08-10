@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="../static/css/style.css" />
     
@@ -98,14 +101,14 @@
           <div class="detail__container">
             <div class="detail__body">
               <div class="detail__left">
-                <div class="detail__image"><img src="" alt="detail-image"/></div>
-                <div class="detail__date">
+                <div class="detail__image"><img src="" alt="post-image" id="postImage"/></div>
+                <div class="detail__date" id="createDate">
                   <p>작성 날짜</p>
                 </div>
-                <div class="detail__user">
+                <div class="detail__user" id="createUser">
                   <p>작성자</p>
                 </div>
-                <div class="detail__content">
+                <div class="detail__content" id="postContent">
                   <p>본문</p>
                 </div>
               </div>
@@ -114,15 +117,15 @@
                 <div class="detail__right__body" id="comment-container">
                   <div class="detail__comment" id="comment">
                     <div class="detail__comment_user-wrapper">
-                      <div class="detail__comment__profile">작성자 프로필</div>
-                      <div class="detail__comment__user">작성자</div>
+                      <div class="detail__comment__profile"><img id="commentUserProfile"/></div>
+                      <div class="detail__comment__user"><p id="commentUser">작성자</p></div>
                     </div>
-                    <div class="detail__comment__content">내용</div>
+                    <div class="detail__comment__content"><p id="commentContent">내용내용내용내용내용내용내용</p></div>
                   </div>
                 </div>
                 <div class="detail__right__footer">
-                  <input class="comment__input" type="text"/>
-                  <button class="comment__button" >댓글달기</button>
+                  <input class="comment__input" type="text" id="comment-input"/>
+                  <button class="comment__button" id="comment-button" ><i class="fa-regular fa-paper-plane"></i> </button>
                 </div>
               </div>
             </div>
