@@ -1,5 +1,4 @@
-from flask import request, jsonify, make_response, render_template, redirect, url_for, session
-from flask_oauthlib.client import OAuth
+from flask import request, jsonify, make_response, render_template
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 import jwt
