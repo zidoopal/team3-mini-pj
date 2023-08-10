@@ -1,14 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>회원 가입 페이지</title>
 
-    <!-- css파일 연결 -->
-    <link rel="stylesheet" href="../static/css/screen/signup.css" />
-    <link rel="stylesheet" href="../static/css/variables.css" />
-  </head>
-  <body></body>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>회원가입 페이지</title>
+
+  <!-- css파일 연결 -->
+  <link rel="stylesheet" href="../static/css/screen/signup.css" />
+  <link rel="stylesheet" href="../static/css/variables.css" />
+
+  <!-- js파일 연결 -->
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="../static/js/signup.js" type="module" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="wrapper">
+      <div class="main__left">
+        <img src="" alt="#" />
+      </div>
+      <div class="main__right">
+        <header class="right__header">
+          <h1>프로젝트 이름</h1>
+          <h3>회원가입</h3>
+        </header>
+
+        <body class="right__body">
+          <div class="right__body__big-input-wrapper">
+            <div class="right__body__input-wrapper" id="signup-email">
+              <div class="body__input-name">
+                <p>이메일</p>
+              </div>
+              <input type="text" minlength="5" maxlength="20" placeholder="이메일" class="body__input" id="email" required/>
+            </div>
+            <div class="right__body__input-wrapper" id="signup-password">
+              <div class="body__input-name">
+                <p>비밀번호</p>
+              </div>
+              <input type="password" minlength="5" maxlength="20" placeholder="비밀번호" class="body__input" id="password" required/>
+            </div>
+            <div class="right__body__input-wrapper" id="signup_confirmPassword">
+              <div class="body__input-name">
+                <p>비밀번호 확인</p>
+              </div>
+              <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
+                placeholder="비밀번호 확인" required>
+            </div>
+            <div class="right__body__input-wrapper" id="signup_nickname">
+              <div class="body__input-name">
+                <p>닉네임</p>
+              </div>
+              <input type="text" maxlength="10" class="body__input" id="nickname"
+                placeholder="닉네임" required>
+            </div>
+          </div>
+          <div class="big__signup__button__wrapper">
+            <div class="signup__button__wrapper">
+              <button class="signup__button" id="signup-button">회원가입</button>
+            </div>
+          </div>
+        </body>
+        <footer class="right__footer">
+          <p>로그인 하기</p>
+        </footer>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
