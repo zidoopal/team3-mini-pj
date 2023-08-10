@@ -2,9 +2,7 @@ name: Build and Deploy Flask to AWS EC2
 
 on:
   push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
 
 env:
   PROJECT_NAME: jonghun_project
