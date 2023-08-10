@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from login import *
+from signup import *
 from oauth import google_oauth, kakao_oauth
 import os
 from flask_oauthlib.client import OAuth
@@ -67,6 +68,14 @@ def logout():
     return user_logout()
 
 # 회원가입
+@app.route('/signup', methods = ['GET'])
+def get_signup_page():
+    return render_template('signup.html')
+
+# 회원가입 기능
+@app.route('/signup', methods=['POST'])
+def signup():
+    return user_signup()
 
 # 글 등록 (Create)
 
