@@ -23,8 +23,6 @@ def user_signup():
     confirmPassword = request.form['confirmPassword_give'].strip()
     nickname = request.form['nickname_give'].strip()
 
-    print(email,password,confirmPassword,nickname)
-
     ## 로그인 검증
     # 이메일 입력 검사
     if(email == ''):
