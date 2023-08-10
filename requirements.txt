@@ -8,3 +8,4 @@ Flask-OAuthlib
 python-dotenv
 gunicorn
 boto3
+email_validator
