@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>상세 페이지</title>
+
   <link rel="stylesheet" href="../static/css/style.css" />
 </head>
 <body>
@@ -72,9 +73,39 @@
             </div>
           </nav>
         </aside>
-
-        <h1>상세 페이지</h1>
-
+        
+        <div class="detail__container">
+          <div class="detail__body">
+            <div class="detail__left">
+              <div class="detail__image"><img src="" alt="detail-image"/></div>
+              <div class="detail__date">
+                <p>작성 날짜</p>
+              </div>
+              <div class="detail__user">
+                <p>작성자</p>
+              </div>
+              <div class="detail__content">
+                <p>본문</p>
+              </div>
+            </div>
+            <div class="detail__right">
+              <div class="detail__right__header">댓글을 달아주세요</div>
+              <div class="detail__right__body" id="comment-container">
+                <div class="detail__comment" id="comment">
+                  <div class="detail__comment_user-wrapper">
+                    <div class="detail__comment__profile">작성자 프로필</div>
+                    <div class="detail__comment__user">작성자</div>
+                  </div>
+                  <div class="detail__comment__content">내용</div>
+                </div>
+              </div>
+              <div class="detail__right__footer">
+                <input class="comment__input" type="text"/>
+                <button class="comment__button" >댓글달기</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <script
         src="https://kit.fontawesome.com/caa7486ade.js"
         crossorigin="anonymous"

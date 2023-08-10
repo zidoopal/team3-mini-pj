@@ -25,6 +25,11 @@ def get_main_page():
 def get_login_page():
     return render_template('login.html')
 
+# 상세 페이지 렌더링
+@app.route('/detail/<id>', methods=['GET'])
+def get_detail_page(id):
+    return render_template('detail.html')
+
 # 로그인 기능
 @app.route('/login', methods=['POST'])
 def login():
