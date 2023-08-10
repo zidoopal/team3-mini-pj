@@ -17,8 +17,10 @@ function checkLoginStatus() {
       .then((data) => {
         if (data.authenticated) {
           // 인증 성공
-          // document.querySelector(".logout-button").style.display = "block";
-          // document.querySelector(".login-button").style.display = "none";
+          // document.querySelector("#nav-logout-button").style.display = "block";
+          // document.querySelector("#nav-login-button").style.display = "none";
+          // document.querySelector("#nav-signup-button").style.display = "block";
+          // document.querySelector("#nav-mypage-button").style.display = "none";
         } else {
           // 인증 실패
           redirectUnauthenticatedUser();
@@ -41,8 +43,10 @@ function redirectUnauthenticatedUser() {
     alert("로그인이 필요한 기능입니다. 로그인 후 이용해주세요.");
     window.location.href = "/login";
   } else {
-    // document.querySelector(".logout-button").style.display = "none";
-    // document.querySelector(".login-button").style.display = "block";
+      // document.querySelector("#nav-logout-button").style.display = "block";
+      // document.querySelector("#nav-login-button").style.display = "none";
+      // document.querySelector("#nav-signup-button").style.display = "block";
+      // document.querySelector("#nav-mypage-button").style.display = "none";
     alert("올바르지 않은 접근입니다. 로그인 후 이용해주세요.");
     deleteCookie("AccessToken");
     window.location.href = "/login";
