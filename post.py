@@ -59,7 +59,7 @@ def api_write():
 
     # S3에서 가져온 이미지url
     location = s3.get_bucket_location(Bucket='group3artistimage')['LocationConstraint']
-    image_url = f'https://group3artistimage.s3.ap-northeast-2.amazonaws.com/{s3_path}'
+    image_url = f'https://group3artistimage.s3.ap-northeast-2.amazonaws.com/'
 
 
     # mongodb에 저장
