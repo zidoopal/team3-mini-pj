@@ -7,7 +7,7 @@ import certifi
 # 환경변수 설정
 import os
 from dotenv import load_dotenv
-load_dotenv()
+load_dotenv('.env')
 MONGO_USER = os.environ.get('MONGO_USER')
 MONGO_PASS = os.environ.get('MONGO_PASS')
 SECRET_KEY = os.environ.get('SECRET_KEY')
