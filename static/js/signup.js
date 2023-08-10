@@ -5,17 +5,17 @@ const signup = () => {
     const password = $("#password").val();
     const confirmPassword = $("#confirmPassword").val();
     const nickname = $("#nickname").val();
-    
+
     let formData = new FormData();
     formData.append("email_give", email);
     formData.append("password_give", password);
     formData.append("confirmPassword_give", confirmPassword);
     formData.append("nickname_give", nickname);
-    
-    
+
+
     fetch('/signup', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
         // 이메일 유효성 검증
-        if(data['msg'] == '유효하지 않은 이메일 입니다!'){
+        if (data['msg'] == '유효하지 않은 이메일 입니다!') {
             let error_html = `<div class="validation_error_msg">${data['msg']}</div>`
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
@@ -54,11 +54,11 @@ const signup = () => {
             $('#signup-nickname').append(error_html)
             $('#signup-nickname').children('#nickname').addClass('input_validation_error')
         }
-        
+
         else if (data['msg'] == '회원가입이 완료되었습니다!') {
-            window.location.reload()
-        } 
-        
+            window.location.href = "/login"
+        }
+
 
 
     });
