@@ -22,12 +22,29 @@
   border-radius: 10px;
 }
 
-.user, .song_title, .artist  {
+
+.info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user, .song_title_input, .artist_input  {
   display: flex;
   justify-content: center;
   margin: 30px;
 }
 
-.user>p, .song_title>p, .artist>p {
+
+.user>p, .song_title_input>p, .artist_input>p {
   margin-right: 20px;
+}
+
+.post_input {
+  border: none;
+  height: 36px;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid var(--deep-pink);
+  padding: 0px 8px;
 }
