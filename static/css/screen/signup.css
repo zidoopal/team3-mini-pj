@@ -134,7 +134,9 @@ a:active {
   align-items: center;
   font-size: 1rem;
 }
-
+.signup__button:hover{
+  background-color: #d3938a; /* 호버 배경색 */
+}
 .right__footer {
   display: flex;
   justify-content: end;
@@ -194,7 +196,7 @@ a:active {
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-right: 5px;
-  
+  margin-bottom: 5px;
 }
 
 .verification_button {
@@ -209,6 +211,12 @@ a:active {
 
 .verification_button:hover {
   background-color: #d3938a; /* 호버 배경색 */
+}
+
+.comp_msg{
+
+  color: #00dd00;
+  font-size: 15px;
 }
 
 .input_validation_error {
