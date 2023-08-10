@@ -3,7 +3,6 @@ from hash import hash_password
 from email_validator import validate_email, EmailNotValidError
 import smtplib
 from email.message import EmailMessage
-import asyncio
 import random
 import time
 import certifi
@@ -15,6 +14,7 @@ load_dotenv()
 MONGO_USER = os.environ.get('MONGO_USER')
 MONGO_PASS = os.environ.get('MONGO_PASS')
 SECRET_KEY = os.environ.get('SECRET_KEY')
+MAIL_SERVER = os. environ.get('MAIL_SERVER')
 MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
 MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
 
@@ -161,7 +161,7 @@ class gmail_sender:
         self.s_email = sender_email
         self.r_email = receiver_email
         self.pw = sender_pasword
-        self.server_name = "smtp.gmail.com"
+        self.server_name = MAIL_SERVER
         self.server_port = 587
 
         self.msg = EmailMessage()
