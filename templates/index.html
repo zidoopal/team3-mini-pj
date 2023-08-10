@@ -6,7 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 페이지</title>
 
+    <!-- CSS 파일 연결 -->
     <link rel="stylesheet" href="../static/css/style.css" />
+
+    <!-- JS 파일 연결 -->
+    <script src="../static/js/aside.js" type="module" defer></script>
+    <script src="../static/js/header.js" type="module" defer></script>
+    <script src="../static/js/common.js" type="module" defer></script>
   </head>
   <body>
     <div class="background">
@@ -25,21 +31,36 @@
 
             <div>
               <ul>
+                <!-- signUp icon -->
+                <li>
+                  <i
+                    class="fa-solid fa-user-plus fa-2xl"
+                    id="nav-signup-button"
+                  ></i>
+                </li>
                 <!-- mypage icon -->
-                <a href="#"
-                  ><li><i class="fa-solid fa-user fa-2xl"></i></li
-                ></a>
+                <!-- <li>
+                  <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
+                </li> -->
+
                 <!-- login icon -->
-                <a href="#"
-                  ><li><i class="fa-solid fa-right-to-bracket fa-2xl"></i></li
-                ></a>
+                <li>
+                  <i
+                    class="fa-solid fa-right-to-bracket fa-2xl"
+                    id="nav-login-button"
+                  ></i>
+                </li>
+
+                <!-- logout icon -->
+                <!-- <li>
+                  <i
+                    class="fa-solid fa-right-from-bracket fa-2xl"
+                    id="nav-logout-button"
+                  ></i>
+                </li> -->
               </ul>
-              <!-- logout icon -->
-              <!-- <li>
-                <a href="#"
-                  ><i class="fa-solid fa-right-from-bracket fa-2xl"></i
-                ></a>
-              </li> -->
+
+              <!-- login icon -->
             </div>
           </nav>
         </header>
@@ -49,17 +70,18 @@
           <!-- 사이드 바 -->
           <aside>
             <nav>
-              <!-- 흠 ㅠㅠ 홈키? 작성? 뭔가 위치가 맘에안듬 일단 넣고본다 -->
               <div>
                 <ul>
                   <li>
                     <!-- home icon -->
-                    <a href="#"><i class="fa-solid fa-house fa-2xl"></i></a>
+                    <i
+                      class="fa-solid fa-house fa-2xl"
+                      id="nav-main-button"
+                    ></i>
                   </li>
                   <li>
                     <!-- write icon -->
-                    <a href="#"><i class="fa-solid fa-pen fa-2xl"></i></a>
-                    <!-- <a href="#"><i class="fa-solid fa-eraser fa-2xl"></i></a> -->
+                    <i class="fa-solid fa-pen fa-2xl" id="nav-write-button"></i>
                   </li>
                 </ul>
               </div>
@@ -81,10 +103,7 @@
                 <!-- photo + info  1set -->
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="https://hanghae99.spartacodingclub.kr/"
-                      ><img
-                        src="https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202305/25/0936d839-0514-405b-91e4-a2d6e2cd6981.jpg"
-                    /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -94,7 +113,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -104,7 +123,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -114,7 +133,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -128,7 +147,7 @@
                 <!-- photo + info  1set -->
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -138,7 +157,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -148,7 +167,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -158,7 +177,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -172,7 +191,7 @@
                 <!-- photo + info  1set -->
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -182,7 +201,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -192,7 +211,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -202,7 +221,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -216,7 +235,7 @@
                 <!-- photo + info  1set -->
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -226,7 +245,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -236,7 +255,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -246,7 +265,7 @@
 
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <a href="#"><img src="#" /></a>
+                    <img />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#뉴진스</p>
@@ -259,6 +278,7 @@
         </div>
       </div>
     </div>
+    <!-- icon -->
     <script
       src="https://kit.fontawesome.com/caa7486ade.js"
       crossorigin="anonymous"
