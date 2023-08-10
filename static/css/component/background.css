@@ -25,6 +25,10 @@
   border-radius: 20px;
 }
 
+i {
+  cursor: pointer;
+}
+
 /* 헤더 */
 header {
   width: 100%;
