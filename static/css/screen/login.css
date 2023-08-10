@@ -21,16 +21,17 @@ a {
   width: 100vw;
   background-color: var(--ivory);
 }
+
 .wrapper {
   min-width: 1200px;
-  min-height: 95%;
+  min-height: 60%;
   display: flex;
   align-items: center;
   background-color: var(--beige);
   border: none;
   border-radius: 20px;
   width: 70%;
-  height: 60%;
+  height: 80%;
 }
 .main__left {
   flex: 1.5;
