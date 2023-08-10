@@ -35,7 +35,7 @@
 ## ✔️ 설치 방법
 ### 필요한 의존성 패키지
 ```
-pip install flask pymongo dnspython jwt certifi requests Flask-OAuthlib python-dotenv email_validator
+pip install flask pymongo dnspython jwt certifi requests Flask-OAuthlib python-dotenv email_validator boto3
 ```
 
 ## ✔️ 구성원 및 맡은 기능
