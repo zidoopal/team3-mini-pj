@@ -79,6 +79,27 @@ def user_signup():
     return jsonify({'msg':'회원가입이 완료되었습니다!'}), 200
 
 
+def verification_email():
+    email = request.form['email_give'].strip()
 
-        
+    # 이메일 입력 검사
+    if(email == ''):
+        return jsonify({'msg':'이메일을 입력해주세요!'}), 401
 
+    # 이메일 유효성 검사
+    try :
+        validate_email(email)
+    except EmailNotValidError:
+        return jsonify({'msg':'유효하지 않은 이메일 입니다!'}), 401
+    
+    # 중복 이메일 검사
+    findUser = db.users.find_one({'email': email} ,{'_id':False})
+    if(findUser):
+        return jsonify({'msg':'이미 등록된 이메일 입니다!'}), 401
+    
+    # TODO 이메일 인증번호 전송 로직
+    emailCertificationNumber = ''
+
+    return jsonify({'msg':'이메일 인증번호 전송'}), 200
+
+    

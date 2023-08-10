@@ -77,6 +77,11 @@ def get_signup_page():
 def signup():
     return user_signup()
 
+# 이메일 인증 요청
+@app.route('/send-verification-email', methods=['POST'])
+def send_verification_email():
+    return verification_email()
+
 # 글 등록 (Create)
 
 # 조회 (Read)
