@@ -107,7 +107,6 @@ const emailValidation = () => {
     let formData = new FormData();
     formData.append("email_give", email);
     // 인증 메일을 한번 보냈다면 다시 보내지 않음
-    if (!$('.verification_container verification_button').hasClass("already_send")) {
         fetch('/send-verification-email', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
             let error_html = ``
             // 이메일 입력 여부 검증
@@ -136,12 +135,13 @@ const emailValidation = () => {
             } else if (data['msg'] == '이메일 인증번호 전송') {
                 $('.validation_error_msg').detach();
                 $('input').removeClass('input_validation_error')
-                // 다시 보낼 수 없도록 검사하는 클래스 추가
-                $('.verification_container verification_button').addClass('already_send');
+            
+                $('#email-validation-button').prop('disabled',true)
                 $('.verification_container').fadeIn();
+                console.log("hihihihihi")
+                
             }
         })
-    }
 }
 
 signupBtn.addEventListener("click", signup);
