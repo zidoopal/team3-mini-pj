@@ -16,32 +16,58 @@
   </head>
   <body>
     <div class="background">
-      <!-- Main Dashboard Frame  -->
       <div class="dashboard">
+        <!-- 헤더 -->
         <header>
-          <h1><i class="fa-solid fa-compact-disc fa-lg"></i></h1>
-          <a href="#"><h1>플리플리</h1></a>
           <nav>
-            <ul>
-              <!-- mypage icon -->
-              <li>
-                <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
-              </li>
+            <div>
+              <!-- cd icon -->
+              <i class="fa-solid fa-compact-disc fa-2xl"></i>
+            </div>
 
-              <!-- login -->
-              <li><i class="fa-solid fa-right-to-bracket fa-2xl id="nav-login-button"></i></li>
-              <!-- logout icon -->
-              <!-- <li>
-                <i
-                  class="fa-solid fa-right-from-bracket fa-2xl"
-                  id="nav-logout-button"
-                ></i> -->
-              </li>
-            </ul>
+            <div>
+              <h1>플리 플리</h1>
+            </div>
+
+            <div>
+              <ul>
+                <!-- signUp icon -->
+                <li>
+                  <i
+                    class="fa-solid fa-user-plus fa-2xl"
+                    id="nav-signup-button"
+                  ></i>
+                </li>
+                <!-- mypage icon -->
+                <!-- <li>
+                  <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
+                </li> -->
+
+                <!-- login icon -->
+                <li>
+                  <i
+                    class="fa-solid fa-right-to-bracket fa-2xl"
+                    id="nav-login-button"
+                  ></i>
+                </li>
+
+                <!-- logout icon -->
+                <!-- <li>
+                  <i
+                    class="fa-solid fa-right-from-bracket fa-2xl"
+                    id="nav-logout-button"
+                  ></i>
+                </li> -->
+              </ul>
+
+              <!-- login icon -->
+            </div>
           </nav>
         </header>
 
+        <!-- 섹션 컨테이너  -->
         <div class="section-container">
+          <!-- 사이드 바 -->
           <aside>
             <nav>
               <div>
@@ -68,45 +94,34 @@
               </div>
             </nav>
           </aside>
-
-          <section>
-            <div class="wirtebox_container">
-              <div class="wirte_box">
-                <h2>노래 추천 글쓰기</h2>
-                <div class="info">
-                  <div class="user">
-                    <p>작성자</p>
-                    <input type="text" />
-                  </div>
-                  <div class="song_title_input">
-                    <p id="song_titel">노래제목</p>
-                    <input type="text" />
-                  </div>
-                  <div class="artist_input">
-                    <p id="artist">가수</p>
-                    <input type="text" />
-                  </div>
+          <div class="wirtebox_container">
+            <div class="wirte_box">
+              <h2>노래 추천 글쓰기</h2>
+              <div class="info">
+                <div class="user">
+                  <p>작성자</p>
+                  <input class="post_input" type="text" />
                 </div>
-                <div class="uploadfile">
-                  파일 업로드
-                  <input id="image_upload" type="file" />
-                  <button id="upload_button">올리기</button>
+                <div class="song_title_input">
+                  <p id="song_titel">노래제목</p>
+                  <input class="post_input" type="text" />
+                </div>
+                <div class="artist_input">
+                  <p id="artist">가수</p>
+                  <input class="post_input" type="text" />
                 </div>
               </div>
-              <div class="graph-ui"></div>
-              <div class="each-pofol">
-                <div class="each-graph">
-                  <div class="db-pofol"></div>
-                  <div class="api-pofol"></div>
-                  <div class="renewal-pofol"></div>
-                  <div class="panning-pofol"></div>
-                </div>
+              <div class="uploadfile">
+                파일 업로드
+                <input id="image_upload" type="file" />
+                <button onclick="window.location.href='/main'" id="upload_button">올리기</button>
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </div>
+    <!-- icon -->
     <script
       src="https://kit.fontawesome.com/caa7486ade.js"
       crossorigin="anonymous"
