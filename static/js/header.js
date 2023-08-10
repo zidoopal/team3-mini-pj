@@ -4,9 +4,8 @@
 const DetailPageIcon = document.querySelector('#nav-mypage-button');
 
 function myPageHandler() {
-  if (true) {
-    window.location.href = 'http://plipli.site/detail';
-  }
+  // 상세 페이지 URL로 이동
+  window.location.href = 'http://plipli.site/detail';
 }
 
 DetailPageIcon.addEventListener('click', myPageHandler);
@@ -15,9 +14,8 @@ DetailPageIcon.addEventListener('click', myPageHandler);
 const signUpIcon = document.querySelector('#nav-signup-button');
 
 function signUpHandler() {
-  if (true) {
-    window.location.href = 'http://plipli.site/signup';
-  }
+  // 회원가입 페이지 URL로 이동
+  window.location.href = 'http://plipli.site/signup';
 }
 
 signUpIcon.addEventListener('click', signUpHandler);
@@ -27,9 +25,8 @@ const logOutIcon = document.querySelector('#nav-logout-button');
 
 // 메인 페이지로 돌아가기
 function logOutHandler() {
-  if (true) {
-    window.location.href = 'http://plipli.site/';
-  }
+  // 메인 페이지 URL로 이동
+  window.location.href = 'http://plipli.site/';
 }
 
 logOutIcon.addEventListener('click', logOutHandler);
@@ -39,9 +36,8 @@ const logInIcon = document.querySelector('#nav-login-button');
 
 // 로그인 페이지로 가기
 function logInHandler() {
-  if (true) {
-    window.location.href = 'http://plipli.site/login';
-  }
+  // 로그인 페이지 URL로 이동
+  window.location.href = 'http://plipli.site/login';
 }
 
 logInIcon.addEventListener('click', logInHandler);
