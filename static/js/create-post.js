@@ -16,7 +16,7 @@ function upload() {
       .then((response) => response.json())
       .then((data) => {
         alert(data["msg"]);
-        window.location.reload();
+        window.location.href('/');
       });
   } else {
     alert('정보를 입력해주세요!')
