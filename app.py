@@ -30,10 +30,6 @@ def get_login_page():
 def get_detail_page(id):
     return render_template('detail.html')
 
-@app.route('/create-post', methods = ['GET'])
-def get_main_page():
-    return render_template('createPost.html')
-
 # 로그인 기능
 @app.route('/login', methods=['POST'])
 def login():
@@ -86,6 +82,19 @@ def get_signup_page():
 def signup():
     return user_signup()
 
+# 이메일 유효성 검증
+@app.route('/email-verification', methods=['POST'])
+def email_verification():
+    return verify_email()
+
+# 이메일 인증 요청
+@app.route('/send-email', methods=['POST'])
+def send_verification_email():
+    return send_email()
+# 인증번호 검증
+@app.route('/verify_auth_code', methods=['POST'])
+def verify_auth_code():
+    return email_auth()
 # 글 등록 (Create)
 
 # 조회 (Read)
