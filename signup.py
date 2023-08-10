@@ -14,8 +14,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # 몽고DB 연결
 ca = certifi.where()
-# TODO 테스트를 위해 나의 db 에 연결 되어서 추후에 전체 공용 DB 로 변경해야함
-client = MongoClient('mongodb+srv://sparta:test@cluster0.voucrah.mongodb.net/?retryWrites=true&w=majority',tlsCAFile=ca)
+client = MongoClient(f'mongodb+srv://{MONGO_USER}:{MONGO_PASS}@cluster0.ebm0gtg.mongodb.net/?retryWrites=true&w=majority', tlsCAFile=ca)
 db = client.miniproject
 
 def user_signup():
