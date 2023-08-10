@@ -17,27 +17,25 @@
 
 .wirte_box>h2 {
   background-color: var(--deep-pink);
-  padding: 10px;
+  padding: 20px 40px;
   border: solid 0px;
   border-radius: 10px;
+  font-size: 20px;
 }
 
-
 .info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin: 20px 0 10px 0;
 }
 
 .user, .song_title_input, .artist_input  {
   display: flex;
   justify-content: center;
-  margin: 30px;
+  align-items: center;
+  margin: 20px;
 }
 
-
 .user>p, .song_title_input>p, .artist_input>p {
-  margin-right: 20px;
+  width: 100px;
 }
 
 .post_input {
@@ -48,3 +46,12 @@
   border: 2px solid var(--deep-pink);
   padding: 0px 8px;
 }
+
+.img_file {
+  width: 180px;
+  border-radius: 0;
+}
+
+/* #upload_button {
+
+} */
