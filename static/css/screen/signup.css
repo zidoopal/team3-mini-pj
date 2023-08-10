@@ -8,7 +8,24 @@ h3 {
   color: black;
   font-weight: 600;
 }
+a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
 
+a:visited {
+  color: black;
+}
+
+a:hover {
+  color: #dba39a; 
+}
+
+
+a:active {
+  color: #efdbda;
+}
 .container {
   display: flex;
   justify-content: center;
