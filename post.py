@@ -49,27 +49,13 @@ def get_main_page():
 # 이미지파일 S3에 저장 / 노래 제목, 가수, 이미지 url, 작성자는 db에 저장
 @app.route("/upload", methods=["POST"])
 def api_write():
-    # print(request.files['image_give'])
     # html에서 가져온 정보
     file = request.files['image_give']
-    title_receive = request.files['song_title_give']
-    artist_receive = request.files['artist_give']
+    title_receive = request.form['song_title_give']
+    artist_receive = request.form['artist_give']
+
     # 현재 로그인 사용자 정보
     # writer =get_user()
-
-    # S3에서 가져온 이미지url
-    location = s3.get_bucket_location(Bucket='group3artistimage')['LocationConstraint']
-    image_url = f'https://group3artistimage.s3.ap-northeast-2.amazonaws.com/'
-
-
-    # mongodb에 저장
-    doc = {
-        'user': '',
-        'song_title': title_receive,
-        'artist': artist_receive,
-        'img_url': ''
-    }
-    db.posts.insert_one(doc)
 
     # S3에 저장할 파일 이름 지정
     filename = file.filename.split('.')[0]
@@ -77,12 +63,17 @@ def api_write():
     img_name = datetime.now().strftime(f"{filename}-%Y-%m-%d-%H-%S.{ext}")
 
     # S3 버킷에 업로드
-    success = s3_put_object(s3,'group3artistimage',file,img_name)
+    image_url = s3_put_object(s3,'group3artistimage',file,img_name)
     
-    if success:
-        return jsonify({'msg': '저장 완료!'})
-    else:
-        return jsonify({'msg': '저장 실패!'}), 500
+    # mongodb에 저장
+    doc = {
+        'user': '',
+        'song_title': title_receive,
+        'artist': artist_receive,
+        'img_url': image_url
+    }
+    db.posts.insert_one(doc)
+    return jsonify({'msg': '저장 완료!'})
 
 def s3_put_object(s3, bucket, file, filename):
     try:
@@ -93,11 +84,17 @@ def s3_put_object(s3, bucket, file, filename):
             ContentType=file.content_type, #image/jpeg ?
             ACL='public-read'
         )
-        return True
+        url = f'https://group3artistimage.s3.ap-northeast-2.amazonaws.com/images/{filename}'
+        print(url)
+        return url
     
     except Exception as e:
         print(e)
         return False
+
+@app.route('/main', methods = ['GET'])
+def get_index_page():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5002, debug=True)
