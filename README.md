@@ -14,11 +14,12 @@
  
 - 로그인:
   1. 일반 로그인
-  
+  </br>
   - 로그인 시 AccessToken발급
-
+  - AccessToken만료시 RefreshToken을 통한 AccessToken발급 (개발 중)
+  </br>
   2. 소셜 로그인
-
+  </br>
   - 구글 로그인 기능
   - 카카오 로그인 기능
 
@@ -34,7 +35,7 @@
 ## ✔️ 설치 방법
 ### 필요한 의존성 패키지
 ```
-pip install flask pymongo dnspython jwt certifi requests Flask-OAuthlib dotenv
+pip install flask pymongo dnspython jwt certifi requests Flask-OAuthlib python-dotenv
 ```
 
 ## ✔️ 구성원 및 맡은 기능
