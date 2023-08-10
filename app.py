@@ -1,6 +1,7 @@
 from flask import Flask, render_template
 from login import *
 from signup import *
+from detail import *
 from oauth import google_oauth, kakao_oauth
 import os
 from flask_oauthlib.client import OAuth
@@ -99,13 +100,32 @@ def send_verification_email():
 @app.route('/verify_auth_code', methods=['POST'])
 def verify_auth_code():
     return email_auth()
-# 글 등록 (Create)
 
-# 조회 (Read)
+# 상세페이지 게시글 조회
+@app.route('/api/detail/<post_id>', methods=['GET'])
+def detail(post_id):
+    post = get_post_detail(post_id)
+    if post:
+        return jsonify(post)
+    else:
+        return jsonify({"message": "존재하지 않는 게시글입니다."}), 404
 
-# 수정 (Update)
+# 댓글 추가
+@app.route('/detail/<post_id>/comment', methods=['POST'])
+def add_comment(post_id):
+    comment = request.json.get('comment')
+    if not comment:
+        return jsonify({"message": "올바르지 않은 형식입니다."}), 400
+    if add_comment_to_db(post_id, comment):
+        return jsonify({"success": True})
+    else:
+        return jsonify({"success": False}), 400
 
-# 삭제 (Delete)
+# 댓글 조회
+@app.route('/detail/<post_id>/comments', methods=['GET'])
+def get_comments(post_id):
+    comments = fetch_comments_from_db(post_id)
+    return jsonify({"comments": comments})
 
 
 if __name__ == '__main__':
