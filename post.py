@@ -17,7 +17,6 @@ client = MongoClient(f'mongodb+srv://{MONGO_USER}:{MONGO_PASS}@cluster0.ebm0gtg.
 db = client.miniproject
 
 
-load_dotenv()
 def s3_connection():
     try:
         # s3 클라이언트 생성
@@ -62,8 +61,11 @@ def api_write():
     # S3 버킷에 업로드
     image_url = s3_put_object(s3,'group3artistimage',file,img_name)
     
+    postId = db.posts.find() + 1
+
     # mongodb에 저장
     doc = {
+        'postId': postId,
         'user': '',
         'song_title': title_receive,
         'artist': artist_receive,
