@@ -46,6 +46,8 @@ def get_google_oauth_token():
 def login_google():
     return google.authorize(callback=url_for('google_oauth.authorized', _external=True))
 
+from flask import render_template_string
+
 @google_bp.route('/auth/authorized', methods=['GET', 'POST'])
 def authorized():
     response = google.authorized_response()
@@ -53,7 +55,6 @@ def authorized():
         return "요청이 거부되었습니다."
     session['google_token'] = (response['access_token'], '')
     user_info = google.get('userinfo').data
-    print(user_info)
 
     # 사용자 DB에서 이메일로 사용자를 찾습니다.
     user = db.google_users.find_one({'email': user_info['email']})
@@ -66,7 +67,19 @@ def authorized():
         }
         db.google_users.insert_one(user)
 
-    # 메인 페이지로 리다이렉트하기 전에 쿠키에 액세스 토큰을 저장합니다.
-    resp = make_response(redirect(url_for('get_main_page')))
+    # 클라이언트 로컬 스토리지에 정보를 저장하는 JavaScript 코드를 작성합니다.
+    js_template = """
+    <script>
+        localStorage.setItem('email', '{{ email }}');
+        localStorage.setItem('name', '{{ name }}');
+        localStorage.setItem('picture', '{{ picture }}');
+        setTimeout(function(){
+            window.location.href = "{{ redirect_url }}"; // 이동할 페이지 URL
+        }, 0);
+    </script>
+    """
+
+    # JavaScript 코드에 필요한 정보를 채워서 응답으로 전송합니다.
+    resp = make_response(render_template_string(js_template, email=user_info['email'], name=user_info['name'], picture=user_info['picture'], redirect_url=url_for('get_main_page')))
     resp.set_cookie('AccessToken', 'google_' + response['access_token'])
     return resp
