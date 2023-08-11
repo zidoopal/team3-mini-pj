@@ -2,6 +2,32 @@ const signupBtn = document.querySelector("#signup-button");
 const emailValidationBtn = document.querySelector("#email-validation-button");
 const authBtn = document.querySelector(".verification_button");
 
+// 페이지 시작 시
+$(() =>{
+    setTimeout(() => {
+        $('#signup-email').fadeIn()    
+    }, 50);
+    setTimeout(() => {
+        $('#signup-password').fadeIn()
+    }, 100);
+    setTimeout(() => {
+        $('#signup-confirmPassword').fadeIn()
+    }, 150)
+    setTimeout(() => {
+        $('#signup-nickname').fadeIn()
+    }, 200)
+    setTimeout(() => {
+        $('.hidden').fadeIn()
+        $('.right__footer').css({"display": "flex","justify-content":"end"})
+    }, 250)
+    
+    
+    
+    
+    
+    
+})
+
 const signup = () => {
     const email = $("#email").val();
     const password = $("#password").val();

@@ -25,6 +25,7 @@
           <br>
           <h3>회원가입</h3>
         </header>
+
         <body class="right__body">
           <div class="right__body__big-input-wrapper">
             <div class="right__body__input-wrapper " id="signup-email">
@@ -41,7 +42,7 @@
                 <button class="verification_button">인증번호 확인</button>
               </div>
             </div>
-            <div class="right__body__input-wrapper" id="signup-password">
+            <div class="right__body__input-wrapper " id="signup-password">
               <div class="body__input-name">
                 <p>비밀번호</p>
               </div>
@@ -50,32 +51,31 @@
                   id="password" required />
               </div>
             </div>
-            <div class="right__body__input-wrapper" id="signup-confirmPassword">
+            <div class="right__body__input-wrapper " id="signup-confirmPassword">
               <div class="body__input-name">
                 <p>비밀번호 확인</p>
               </div>
               <div class="email_input_container ">
-                <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
-                  placeholder="비밀번호 확인" required>
+              <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
+                placeholder="비밀번호 확인" required>
               </div>
             </div>
-            <div class="right__body__input-wrapper" id="signup-nickname">
+            <div class="right__body__input-wrapper " id="signup-nickname">
               <div class="body__input-name">
-                <p>닉네임</p>
+                <p> 닉네임</p>
               </div>
               <div class="email_input_container ">
-                <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)"
-                  required>
-              </div>
+              <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)" required>
+            </div>
             </div>
           </div>
-          <div class="big__signup__button__wrapper">
+          <div class="big__signup__button__wrapper hidden">
             <div class="signup__button__wrapper">
               <button class="signup__button" id="signup-button">회원가입</button>
             </div>
           </div>
         </body>
-        <footer class="right__footer">
+        <footer class="hidden right__footer ">
           <a href="/login">로그인 하기</p>
         </footer>
       </div>
