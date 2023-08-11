@@ -6,12 +6,12 @@ const signUpIcon = document.querySelector('#nav-signup-button');
 const logOutIcon = document.querySelector('#nav-logout-button');
 const logInIcon = document.querySelector('#nav-login-button');
 
-// 마이페이지
-function myPageHandler() {
-  // 마이페이지 구현 X ?
-  window.location.href = '';
-}
-myPageIcon.addEventListener('click', myPageHandler);
+// // 마이페이지
+// function myPageHandler() {
+//   // 마이페이지 구현 X ?
+//   window.location.href = '';
+// }
+// myPageIcon.addEventListener('click', myPageHandler);
 
 // 회원가입 페이지 이동
 function signUpHandler() {
