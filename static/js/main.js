@@ -1,39 +1,35 @@
 'use strict';
 
 // 사진 불러오기
-document.addEventListener('DOMContentLoaded', function () {
-  listing();
+$(document).ready(function () {
+  showPhoto();
 });
 
-function listing() {
-  // rows 변수가 여기서 정의되어야 합니다.
+function showPhoto() {
   fetch('/upload')
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
       let rows = data['result'];
 
+      $('.photo-section').empty();
       rows.forEach((a) => {
         let userName = a['user'];
         let img_url = a['img_url'];
         let artistName = a['artist'];
-        let song_title = a['song_title'];
-        // let date = a['']
-        console.log(userName, img_url, artistName, song_title);
-        let photoSection = document.querySelector('.photo-set');
-
+        let songTitle = a['song_title'];
+        let date = a['createAT'];
         let photoSetHTML = `<div class="photo-set">
                                 <div class="artist-photo">
-                                  <img src="${img_url}" id="tag" />
+                                  <img src="${img_url}" />
                                 </div>
                                 <div class="photo-info">
-                                  <p id="tag">${(artistName, song_title)}</p>
-                                  <p id="date"><span id="userName">${userName}</span></p>
+                                  <p id="artistName">#${artistName}<span id="song_title">#${songTitle}</span></p>
+                                  <p id="date">${date}<span id="userName">${userName}</span></p>
                                 </div>
-                              </div>
-                            </div>`;
+                              </div>`;
 
-        photoSection.innerHTML += photoSetHTML;
+        $('.photo-section').append(photoSetHTML);
       });
     });
 }
