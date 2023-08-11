@@ -13,14 +13,16 @@
   justify-content: center;
   align-items: center;
   background-color: var(--ivory);
+  box-shadow: 0 0 10px 0 rgba(99, 78, 54, 0.3);
 }
 
 .wirte_box>h2 {
   background-color: var(--deep-pink);
   padding: 20px 40px;
-  border: solid 0px;
-  border-radius: 10px;
+  border: solid 1px var(--pink);
+  border-radius: 20px;
   font-size: 20px;
+  color: white;
 }
 
 .info {
@@ -50,8 +52,16 @@
 .img_file {
   width: 180px;
   border-radius: 0;
+  
 }
 
-/* #upload_button {
+#upload_button {
+  border: solid 1px var(--deep-pink);
+  border-radius: 2px;
+  padding: 4px 8px;
+  background-color: var(--pink);
+}
 
-} */
+#upload_button:hover {
+  background-color: var(--yellow-green);
+}
