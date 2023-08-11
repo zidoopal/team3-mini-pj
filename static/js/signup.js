@@ -138,7 +138,7 @@ const emailValidation = () => {
     let formData = new FormData();
     formData.append("email_give", email);
 
-    fetch('/email-verification', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+    fetch('/signup/email-verification', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
         $(".verification_input").val('')
         let error_html = ``
         // 이메일 입력 여부 검증
@@ -173,7 +173,7 @@ const emailValidation = () => {
             $('.verification_container').fadeIn();
             
             // 이메일 전송
-            fetch('/send-email', { method: "POST", body: formData })
+            fetch('/signup/send-email', { method: "POST", body: formData })
         }
     })
 }
@@ -185,7 +185,7 @@ const emailAuth = () =>{
     formData.append('email_give',email);
     formData.append('accessCode_give',accessCode);
 
-    fetch('/verify_auth_code', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+    fetch('/signup/verify-auth-code', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
         let error_html = ``
         if(data['msg'] == '이메일 인증 성공'){
             let comp_html = `<div class="comp_msg">인증 완료</div>`
