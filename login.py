@@ -32,14 +32,23 @@ def user_login():
     if user['password'] != hash_password(password):
         return jsonify({'message': '비밀번호가 일치하지 않습니다.'}), 401
 
-    resp = make_response(render_template('index.html'))
     payload = {
         'email': email,
         'exp': datetime.utcnow() + timedelta(seconds=60 * 60 * 24)  # 로그인 24시간 유지
     }
     token = jwt.encode(payload, SECRET_KEY, algorithm="HS256")
+
+    # 클라이언트에 로컬 스토리지에 email과 name을 저장하는 자바스크립트 코드를 전달.
+    storage_script = f"""
+    <script>
+        localStorage.setItem('email', '{email}');
+        localStorage.setItem('name', '{user["nickname"]}');
+    </script>
+    """
+    resp = make_response(render_template('index.html', storage_script=storage_script))
     resp.set_cookie("AccessToken", token)
     return resp
+
 
 
 # 토큰 검증 함수
