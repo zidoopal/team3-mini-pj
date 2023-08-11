@@ -27,7 +27,6 @@
 .detail__image {
   width: 100%;
   height: 70%;
-  background-color: red;
 }
 
 .detail__date{
@@ -72,7 +71,7 @@
   height: 80%;
   display: flex;
   flex-direction: column;
-
+  gap: 12px;
 }
 
 .detail__comment{
