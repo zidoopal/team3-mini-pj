@@ -72,7 +72,19 @@ function getPostId() {
 }
 
 // 댓글 추가하는 코드
-document.getElementById("comment-button").addEventListener("click", () => {
+
+// 버튼 클릭 이벤트
+document.getElementById("comment-button").addEventListener("click", addComment);
+
+// 엔터키 입력 이벤트
+document.getElementById("comment-input").addEventListener("keyup", (e) => {
+  if (e.key === "Enter" || e.keyCode === 13) { // "Enter"는 현대 브라우저용, keyCode는 레거시 브라우저 지원용
+    addComment();
+  }
+});
+
+// 댓글을 작성하는 함수
+function addComment() {
   const comment = document.getElementById("comment-input").value;
 
   if (!comment.trim()) {
@@ -80,19 +92,18 @@ document.getElementById("comment-button").addEventListener("click", () => {
     return;
   }
 
-    // 로컬 스토리지에서 email, name, picture 가져오기
-    const userEmail = localStorage.getItem('email');
-    const userName = localStorage.getItem('name');
-    const userPicture = localStorage.getItem('picture'); 
-  
-    const payload = {
-      comment: comment,
-      email: userEmail,
-      name: userName,
-      picture: userPicture
-    };
+  // 로컬 스토리지에서 email, name, picture 가져오기
+  const userEmail = localStorage.getItem('email');
+  const userName = localStorage.getItem('name');
+  const userPicture = localStorage.getItem('picture');
 
-    
+  const payload = {
+    comment: comment,
+    email: userEmail,
+    name: userName,
+    picture: userPicture
+  };
+
   fetch(`/detail/${postId}/comment`, {
     method: "POST",
     headers: {
@@ -114,7 +125,7 @@ document.getElementById("comment-button").addEventListener("click", () => {
       console.error("Error:", error);
       alert("댓글 등록 중 오류가 발생했습니다.");
     });
-});
+}
 
 // 페이지 로드 시 댓글 및 게시글 상세 내용 가져오기
 document.addEventListener("DOMContentLoaded", function () {

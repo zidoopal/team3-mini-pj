@@ -14,7 +14,8 @@ client = MongoClient(f'mongodb+srv://{MONGO_USER}:{MONGO_PASS}@cluster0.ebm0gtg.
 db = client.miniproject
 
 def get_post_detail(post_id):
-    post = db.posts.find_one({"postId": post_id}, {"_id": 0})
+    post_id_int = int(post_id)
+    post = db.posts.find_one({"postId": post_id_int}, {"_id": 0})
     if post:
         return post
     else:
