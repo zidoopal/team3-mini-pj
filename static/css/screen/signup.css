@@ -145,6 +145,7 @@ a:hover {
   width: 100%;
   margin:0px;
   padding: 0px ;
+  
 }
 
 .email_validation_button {
@@ -180,11 +181,22 @@ a:hover {
   margin-right: 5px;
 }
 
-.verification_container {
-  padding-top: 10px;
+.verification_wrapper{
+  display: flex;
+  flex-direction: column;
   display: none;
 }
 
+.verification_container {
+  padding-top: 10px;
+}
+
+.verification_msg {
+  display: flex;
+  justify-content: start;
+  margin-left: 24%;
+  margin-top: 5px;
+}
 
 .verification_input {
   width: 50%;
@@ -231,5 +243,6 @@ a:hover {
   width: 100%;
   justify-content: start;
   color: #ff4444;
+  margin-top: 5px;
 }
 

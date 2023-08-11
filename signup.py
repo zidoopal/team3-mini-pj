@@ -73,7 +73,7 @@ def user_signup():
 
     # 이메일 인증 여부 검사
     auth = db.emailAuth.find_one({'email':email}) 
-    if(auth['authComplete'] == False):
+    if(auth == None or auth['authComplete'] == False):
         return jsonify({'msg':'이메일 인증이 필요합니다!'}), 401
         
     db.emailAuth.delete_many({'email':email})
@@ -143,6 +143,9 @@ def email_auth():
     access_code = request.form['accessCode_give']
 
     auth = db.emailAuth.find_one({'email':email})
+    if(auth == None):
+        return jsonify({'msg':'다시 인증요청 해주세요.'}), 401
+    
     if(access_code == str(auth['accessCode'])):
         # 인증번호 만료 시
         if(time.time() - auth['timestamp'] > 180):

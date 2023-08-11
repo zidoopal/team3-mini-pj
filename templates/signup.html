@@ -37,9 +37,14 @@
                   class="email_input" id="email" required />
                 <button class="email_validation_button" id="email-validation-button">인증요청</button>
               </div>
-              <div class="verification_container">
-                <input type="text" maxlength="6" placeholder="인증번호 입력" class="verification_input" required />
-                <button class="verification_button">인증번호 확인</button>
+              <div class="verification_wrapper">
+                <div class="verification_container">
+                  <input type="text" maxlength="6" placeholder="인증번호 입력" class="verification_input" required />
+                  <button class="verification_button">인증번호 확인</button>
+                </div>
+                <div class="verification_msg">
+
+                </div>
               </div>
             </div>
             <div class="right__body__input-wrapper " id="signup-password">
@@ -56,8 +61,8 @@
                 <p>비밀번호 확인</p>
               </div>
               <div class="email_input_container ">
-              <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
-                placeholder="비밀번호 확인" required>
+                <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
+                  placeholder="비밀번호 확인" required>
               </div>
             </div>
             <div class="right__body__input-wrapper " id="signup-nickname">
@@ -65,8 +70,9 @@
                 <p> 닉네임</p>
               </div>
               <div class="email_input_container ">
-              <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)" required>
-            </div>
+                <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)"
+                  required>
+              </div>
             </div>
           </div>
           <div class="big__signup__button__wrapper hidden">
