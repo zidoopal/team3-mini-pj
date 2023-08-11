@@ -23,11 +23,6 @@ a:hover {
   color: #555555;
 }
 
-
-a:active {
-  color: #d3938a;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -50,7 +45,7 @@ a:active {
 }
 
 .main__left {
-  flex: 1.5;
+  flex: 1;
   min-width: 720px;
   height: 100%;
   background-color: var(--pink);
@@ -61,7 +56,7 @@ a:active {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  flex: 1;
+  flex: 1.5;
   width: 100%;
   height: 50%;
   padding: 0px 5%;
@@ -147,10 +142,10 @@ a:active {
 
 .email_input_container {
   display: flex;
-  align-items: center;
-  width: 105%;
-  margin: 0px;
-  padding: 0px;
+  align-items: left;
+  width: 100%;
+  margin:0px;
+  padding: 0px ;
 }
 
 .email_validation_button {

@@ -19,16 +19,12 @@
 <body>
   <div class="container">
     <div class="wrapper">
-      <div class="main__left">
-        <img src="" alt="#" />
-      </div>
       <div class="main__right">
         <header class="right__header">
           <h1>플리 플리</h1>
           <br>
           <h3>회원가입</h3>
         </header>
-
         <body class="right__body">
           <div class="right__body__big-input-wrapper">
             <div class="right__body__input-wrapper " id="signup-email">
@@ -49,21 +45,28 @@
               <div class="body__input-name">
                 <p>비밀번호</p>
               </div>
-              <input type="password" minlength="5" maxlength="20" placeholder="비밀번호 (5~20 글자)" class="body__input"
-                id="password" required />
+              <div class="email_input_container ">
+                <input type="password" minlength="5" maxlength="20" placeholder="비밀번호 (5~20 글자)" class="body__input"
+                  id="password" required />
+              </div>
             </div>
             <div class="right__body__input-wrapper" id="signup-confirmPassword">
               <div class="body__input-name">
                 <p>비밀번호 확인</p>
               </div>
-              <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
-                placeholder="비밀번호 확인" required>
+              <div class="email_input_container ">
+                <input type="password" minlength="5" maxlength="20" class="body__input" id="confirmPassword"
+                  placeholder="비밀번호 확인" required>
+              </div>
             </div>
             <div class="right__body__input-wrapper" id="signup-nickname">
               <div class="body__input-name">
                 <p>닉네임</p>
               </div>
-              <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)" required>
+              <div class="email_input_container ">
+                <input type="text" maxlength="10" class="body__input" id="nickname" placeholder="닉네임 (20 글자 이하)"
+                  required>
+              </div>
             </div>
           </div>
           <div class="big__signup__button__wrapper">
