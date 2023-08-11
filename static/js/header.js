@@ -21,10 +21,10 @@ signUpIcon.addEventListener('click', signUpHandler);
 
 // 로그아웃
 // 메인 페이지로 돌아가기
-function logOutHandler() {
-  window.location.href = '/';
-}
-logOutIcon.addEventListener('click', logOutHandler);
+// function logOutHandler() {
+//   window.location.href = '/';
+// }
+// logOutIcon.addEventListener('click', logOutHandler);
 
 // 로그인 페이지로 가기
 function logInHandler() {
