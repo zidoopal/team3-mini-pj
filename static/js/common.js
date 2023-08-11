@@ -2,7 +2,7 @@ function checkLoginStatus() {
   const token = getCookie("AccessToken");
   if (token) {
     // 서버에 인증 요청을 보냄
-    fetch("/auth/verify", {
+    return fetch("/auth/verify", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -16,32 +16,30 @@ function checkLoginStatus() {
       })
       .then((data) => {
         if (data.authenticated) {
-          // 인증 성공
-          // document.querySelector("#nav-logout-button").style.display = "block";
-          // document.querySelector("#nav-login-button").style.display = "none";
-          // document.querySelector("#nav-signup-button").style.display = "block";
-          // document.querySelector("#nav-mypage-button").style.display = "none";
+          return true; // 로그인 상태
         } else {
-          // 인증 실패
           redirectUnauthenticatedUser();
+          return false; // 로그아웃 상태
         }
       })
       .catch((error) => {
         console.error("인증 중 오류 발생:", error);
         redirectUnauthenticatedUser();
+        return false; // 로그아웃 상태
       });
   } else {
-    // 토큰 없음, 로그아웃 상태
     console.log("로그인되지 않은 유저");
-    return false;
+    redirectUnauthenticatedUser();
+    return false; // 로그아웃 상태
   }
 }
 
 // 인증되지 않은 유저가 접근했을 경우 실행되는 코드 또는 로그인이 필요한 기능
 function redirectUnauthenticatedUser() {
   if (window.location.pathname === "/create-post") {
+
     alert("로그인이 필요한 기능입니다. 로그인 후 이용해주세요.");
-    window.location.href = "/login";
+    window.location.href = "/";
   } else {
       // document.querySelector("#nav-logout-button").style.display = "block";
       // document.querySelector("#nav-login-button").style.display = "none";
@@ -67,8 +65,7 @@ function deleteCookie(name) {
 
 // 현재 페이지의 경로를 확인해서 로그인 상태를 적용
 if (
-  window.location.pathname === "/create-post" ||
-  window.location.pathname === "/"
+  window.location.pathname === "/create-post" 
 ) {
   checkLoginStatus();
 }
