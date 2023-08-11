@@ -45,7 +45,7 @@ function redirectUnauthenticatedUser() {
       // document.querySelector("#nav-login-button").style.display = "none";
       // document.querySelector("#nav-signup-button").style.display = "block";
       // document.querySelector("#nav-mypage-button").style.display = "none";
-    alert("올바르지 않은 접근입니다. 로그인 후 이용해주세요.");
+    alert("올바르지 않은 접근입니다. 다시 로그인해주세요");
     deleteCookie("AccessToken");
     window.location.href = "/login";
   }
@@ -65,7 +65,9 @@ function deleteCookie(name) {
 
 // 현재 페이지의 경로를 확인해서 로그인 상태를 적용
 if (
-  window.location.pathname === "/create-post" 
+  window.location.pathname === "/create-post" ||
+  window.location.pathname === "/" ||
+  window.location.pathname === "/detail"
 ) {
   checkLoginStatus();
 }
