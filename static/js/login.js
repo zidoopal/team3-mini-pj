@@ -1,7 +1,10 @@
 "use strict";
 
 const loginBtn = document.querySelector("#login-button");
+const toSignupBtn = document.querySelector('#to-signup-btn')
 
+
+ 
 export const login = () => {
   const formData = new FormData();
   const email = document.getElementById("email").value;
@@ -26,4 +29,9 @@ export const login = () => {
     ;
 };
 
+export const toSignup = () => {
+  window.location.href ='/signup'
+}
+
 loginBtn.addEventListener("click", login);
+toSignupBtn.addEventListener("click", toSignup);
