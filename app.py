@@ -146,6 +146,13 @@ def get_comments(post_id):
     return jsonify({"comments": comments})
 
 
+# 메인 페이지 사진 조회
+# 조회 (Read)
+@app.route("/upload", methods=["GET"])
+def api_get():
+    all_posts = list(db.posts.find({},{'_id':False}))
+    return jsonify({'result': all_posts})
+
 
 # S3객체 생성
 def s3_connection():
