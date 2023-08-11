@@ -13,8 +13,6 @@ function listing() {
       console.log(data);
       let rows = data['result'];
 
-      c;
-
       rows.forEach((a) => {
         let userName = a['user'];
         let img_url = a['img_url'];
@@ -44,6 +42,6 @@ function listing() {
 const artistPhoto = document.querySelector('.artist-photo');
 
 function photoToDetailPage() {
-  window.location.href = '/detail/<post_id>';
+  window.location.href = '/detail/post_id';
 }
 artistPhoto.addEventListener('click', photoToDetailPage);
