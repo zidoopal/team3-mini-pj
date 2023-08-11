@@ -1,4 +1,4 @@
-from flask import make_response, redirect, url_for, session, Blueprint
+from flask import make_response, redirect, url_for, session, Blueprint, render_template_string
 from flask_oauthlib.client import OAuth
 from pymongo import MongoClient
 import certifi
@@ -50,12 +50,14 @@ def kakao_authorized():
     response = kakao.authorized_response()
     if response is None or response.get('access_token') is None:
         return "요청이 거부되었습니다."
+    
     session['kakao_token'] = (response['access_token'], '')
     kakao_user_info = kakao.get('https://kapi.kakao.com/v2/user/me')
     print(kakao_user_info.data)
 
     email = kakao_user_info.data.get('kakao_account', {}).get('email')
     nickname = kakao_user_info.data.get('properties', {}).get('nickname')
+    profile_image = kakao_user_info.data.get('properties', {}).get('profile_image')
 
     if not email:
         return "이메일 정보를 가져올 수 없습니다."
@@ -71,7 +73,19 @@ def kakao_authorized():
         }
         db.kakao_users.insert_one(user)
 
-    # 메인 페이지로 리다이렉트하기 전에 쿠키에 액세스 토큰을 저장합니다.
-    resp = make_response(redirect(url_for('get_main_page')))
+    # 클라이언트 로컬 스토리지에 정보를 저장하는 JavaScript 코드를 작성합니다.
+    js_template = """
+    <script>
+        localStorage.setItem('email', '{{ email }}');
+        localStorage.setItem('name', '{{ name }}');
+        localStorage.setItem('picture', '{{ picture }}');
+        setTimeout(function(){
+            window.location.href = "{{ redirect_url }}"; // 이동할 페이지 URL
+        }, 0);
+    </script>
+    """
+
+    # JavaScript 코드에 필요한 정보를 채워서 응답으로 전송합니다.
+    resp = make_response(render_template_string(js_template, email=email, name=nickname, picture=profile_image, redirect_url=url_for('get_main_page')))
     resp.set_cookie('AccessToken', 'kakao_' + response['access_token'])
     return resp
