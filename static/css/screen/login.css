@@ -170,3 +170,13 @@ a {
   width: 20px;
   margin-right: 10px;
 }
+
+
+.to-signup-btn {
+  cursor: pointer;
+}
+
+.to-signup-btn:hover {
+  cursor: pointer;
+  color: rgb(80, 69, 69);
+}
