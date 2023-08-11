@@ -166,6 +166,8 @@ def api_write():
     file = request.files['image_give']
     title_receive = request.form['song_title_give']
     artist_receive = request.form['artist_give']
+    d = datetime.now()
+    date = str(d.year)+'년 '+str(d.month)+'월 '+str(d.day)+' 일'
 
     # 현재 로그인 사용자 정보
     # writer =get_user()
@@ -178,12 +180,18 @@ def api_write():
     # S3 버킷에 업로드
     image_url = s3_put_object(s3,'group3artistimage',file,img_name)
     
+    # 게시글 숫자 세기
+    post_list = list(db.posts.find({}, {'_id': False}))
+    postId = len(post_list) + 1
+    
     # mongodb에 저장
     doc = {
+        'postId': postId,
         'user': '',
         'song_title': title_receive,
         'artist': artist_receive,
-        'img_url': image_url
+        'img_url': image_url,
+        'createAT': date
     }
     db.posts.insert_one(doc)
     return jsonify({'msg': '저장 완료!'})
