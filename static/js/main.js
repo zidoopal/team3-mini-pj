@@ -24,7 +24,7 @@ function showPhoto() {
                                   <img src="${img_url}" />
                                 </div>
                                 <div class="photo-info">
-                                  <p id="artistName">#${artistName}<span id="song_title">#${songTitle}</span></p>
+                                <p id="artistName">#${artistName}<span id="song_title">#${songTitle}</span></p>
                                   <p id="date">${date}<span id="userName">${userName}</span></p>
                                 </div>
                               </div>`;
