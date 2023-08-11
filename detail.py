@@ -44,7 +44,7 @@ def fetch_comments_from_db(post_id):
     for comment in comments:
         comment_list.append({
             "userName": comment.get("userName", "Anonymous"),
-            "userProfileImage": comment.get("userProfileImage", "default.png"),
+            "userProfileImage": comment.get("userProfileImage", "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"),
             "content": comment["content"]
         })
     return comment_list
