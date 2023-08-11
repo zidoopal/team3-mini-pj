@@ -65,9 +65,7 @@ function deleteCookie(name) {
 
 // 현재 페이지의 경로를 확인해서 로그인 상태를 적용
 if (
-  window.location.pathname === "/create-post" ||
-  window.location.pathname === "/" ||
-  window.location.pathname === "/detail"
+  window.location.pathname === "/create-post" 
 ) {
   checkLoginStatus();
 }
