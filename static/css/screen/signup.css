@@ -23,11 +23,6 @@ a:hover {
   color: #555555;
 }
 
-
-a:active {
-  color: #d3938a;
-}
-
 .container {
   display: flex;
   justify-content: center;
@@ -39,18 +34,18 @@ a:active {
 
 .wrapper {
   min-width: 1200px;
-  min-height: 95%;
+  min-height: 60%;
   display: flex;
   align-items: center;
   background-color: var(--beige);
   border: none;
   border-radius: 20px;
-  width: 70%;
-  height: 60%;
+  width: 35%;
+  height: 80%;
 }
 
 .main__left {
-  flex: 1.5;
+  flex: 1;
   min-width: 720px;
   height: 100%;
   background-color: var(--pink);
@@ -62,9 +57,10 @@ a:active {
   flex-direction: column;
   gap: 32px;
   flex: 1;
-  width: 100%;
-  height: 50%;
-  padding: 0px 5%;
+  width: 80%;
+  height: 65%;
+  padding: 0px 15%;
+  margin: 0;
 }
 
 .right__header {
@@ -137,20 +133,19 @@ a:active {
 .signup__button:hover{
   background-color: #d3938a; /* 호버 배경색 */
 }
+
 .right__footer {
   display: flex;
   justify-content: end;
 }
 
-
-
-
 .email_input_container {
   display: flex;
-  align-items: center;
-  width: 105%;
-  margin: 0px;
-  padding: 0px;
+  align-items: left;
+  width: 100%;
+  margin:0px;
+  padding: 0px ;
+  
 }
 
 .email_validation_button {
@@ -166,7 +161,8 @@ a:active {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   font-size: 1rem;
-  margin-left: 5px;
+  margin-left: 40px;
+  margin-right: 30px;
 }
 
 .email_validation_button:hover {
@@ -175,7 +171,7 @@ a:active {
 }
 
 .email_input {
-  flex: 3;
+  flex: 6;
   height: 36px;
   width: 100%;
   border-radius: 10px;
@@ -185,9 +181,21 @@ a:active {
   margin-right: 5px;
 }
 
+.verification_wrapper{
+  display: flex;
+  flex-direction: column;
+  display: none;
+}
+
 .verification_container {
   padding-top: 10px;
-  display: none;
+}
+
+.verification_msg {
+  display: flex;
+  justify-content: start;
+  margin-left: 24%;
+  margin-top: 5px;
 }
 
 .verification_input {
@@ -213,6 +221,13 @@ a:active {
   background-color: #d3938a; /* 호버 배경색 */
 }
 
+.hidden{
+  display: none;
+}
+#signup-email, #signup-password, #signup-confirmPassword, #signup-nickname{
+  display: none;
+}
+
 .comp_msg{
 
   color: #00dd00;
@@ -228,5 +243,6 @@ a:active {
   width: 100%;
   justify-content: start;
   color: #ff4444;
+  margin-top: 5px;
 }
 

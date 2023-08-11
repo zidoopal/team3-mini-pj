@@ -2,6 +2,32 @@ const signupBtn = document.querySelector("#signup-button");
 const emailValidationBtn = document.querySelector("#email-validation-button");
 const authBtn = document.querySelector(".verification_button");
 
+// 페이지 시작 시
+$(() =>{
+    setTimeout(() => {
+        $('#signup-email').fadeIn()    
+    }, 50);
+    setTimeout(() => {
+        $('#signup-password').fadeIn()
+    }, 100);
+    setTimeout(() => {
+        $('#signup-confirmPassword').fadeIn()
+    }, 150)
+    setTimeout(() => {
+        $('#signup-nickname').fadeIn()
+    }, 200)
+    setTimeout(() => {
+        $('.hidden').fadeIn()
+        $('.right__footer').css({"display": "flex","justify-content":"end"})
+    }, 250)
+    
+    
+    
+    
+    
+    
+})
+
 const signup = () => {
     const email = $("#email").val();
     const password = $("#password").val();
@@ -47,8 +73,8 @@ const signup = () => {
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-password').append(error_html)
-            $('#signup-password').children('#password').addClass('input_validation_error')
-            $('#signup-password').children('#password').val('')
+            $('#password').addClass('input_validation_error')
+            $('#password').val('')
         }
         // 비밀번호 길이 검증
         else if (data['msg'] == '비밀번호는 5자리 이상 20자리 이하로 해주세요!') {
@@ -56,7 +82,7 @@ const signup = () => {
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-password').append(error_html)
-            $('#signup-password').children('#password').addClass('input_validation_error')
+            $('#password').addClass('input_validation_error')
         }
         // 비밀번호 일치 여부 검증
         else if (data['msg'] == '비밀번호가 일치하지 않습니다!') {
@@ -64,14 +90,14 @@ const signup = () => {
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-confirmPassword').append(error_html)
-            $('#signup-confirmPassword').children('#confirmPassword').addClass('input_validation_error')
+            $('#confirmPassword').addClass('input_validation_error')
         }
         else if (data['msg'] == '닉네임을 입력해주세요!') {
             error_html = `<div class="validation_error_msg">${data['msg']}</div>`
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-nickname').append(error_html)
-            $('#signup-nickname').children('#nickname').addClass('input_validation_error')
+            $('#nickname').addClass('input_validation_error')
         }
         // 닉네임 길이 검증
         else if (data['msg'] == '닉네임은 20자리 이하로 해주세요!') {
@@ -79,7 +105,7 @@ const signup = () => {
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-nickname').append(error_html)
-            $('#signup-nickname').children('#nickname').addClass('input_validation_error')
+            $('#nickname').addClass('input_validation_error')
         }
         // 닉네임 중복 검증
         else if (data['msg'] == '이미 등록된 닉네임 입니다!') {
@@ -87,7 +113,7 @@ const signup = () => {
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
             $('#signup-nickname').append(error_html)
-            $('#signup-nickname').children('#nickname').addClass('input_validation_error')
+            $('#nickname').addClass('input_validation_error')
         }
         else if(data['msg'] == '이메일 인증이 필요합니다!'){
             error_html = `<div class="validation_error_msg">${data['msg']}</div>`
@@ -112,7 +138,7 @@ const emailValidation = () => {
     let formData = new FormData();
     formData.append("email_give", email);
 
-    fetch('/email-verification', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+    fetch('/signup/email-verification', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
         $(".verification_input").val('')
         let error_html = ``
         // 이메일 입력 여부 검증
@@ -144,10 +170,14 @@ const emailValidation = () => {
 
             $('#email').prop('disabled', true)
             $('#email-validation-button').prop('disabled', true)
-            $('.verification_container').fadeIn();
+            $('.verification_wrapper').fadeIn();
+            $('.verification_container').css({"display" : "flex","justify-content" : "center"})
+            $('.verification_input').css({"width":"30%","margin":"0px 10px"})
+            $('.verification_button').css({"width":"20%"})
+            
             
             // 이메일 전송
-            fetch('/send-email', { method: "POST", body: formData })
+            fetch('/signup/send-email', { method: "POST", body: formData })
         }
     })
 }
@@ -159,14 +189,14 @@ const emailAuth = () =>{
     formData.append('email_give',email);
     formData.append('accessCode_give',accessCode);
 
-    fetch('/verify_auth_code', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
+    fetch('/signup/verify-auth-code', { method: "POST", body: formData, }).then((res) => res.json()).then((data) => {
         let error_html = ``
         if(data['msg'] == '이메일 인증 성공'){
             let comp_html = `<div class="comp_msg">인증 완료</div>`
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
 
-            $('.verification_container').append(comp_html)
+            $('.verification_msg').append(comp_html)
             $('.verification_button').prop('disabled', true)
             $('.verification_input').prop('disabled', true)
 
@@ -174,16 +204,22 @@ const emailAuth = () =>{
             error_html = `<div class="validation_error_msg">${data['msg']}</div>`
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
-            $('.verification_container').append(error_html)
+            $('.verification_msg').append(error_html)
             $('.verification_input').addClass('input_validation_error')
         } else if(data['msg'] == '인증번호가 만료되었습니다.'){
             error_html = `<div class="validation_error_msg">${data['msg']}</div>`
             $('.validation_error_msg').detach();
             $('input').removeClass('input_validation_error')
-            $('.verification_container').append(error_html)
+            $('.verification_msg').append(error_html)
             $('.verification_input').addClass('input_validation_error')
 
             $('#email-validation-button').prop('disabled', false)
+        } else if(data['msg'] == '다시 인증요청 해주세요.'){
+            error_html = `<div class="validation_error_msg">${data['msg']}</div>`
+            $('.validation_error_msg').detach();
+            $('input').removeClass('input_validation_error')
+            $('.verification_msg').append(error_html)
+            $('.verification_input').addClass('input_validation_error')
         }
     })
 }
