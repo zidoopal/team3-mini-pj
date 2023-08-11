@@ -11,9 +11,10 @@ function fetchPostDetail() {
     })
     .then((data) => {
       $("#postImage").attr("src", data.img_url);
-      $("#createDate p").text(data.createdAt);
-      $("#createUser p").text(data.userNickname);
-      $("#postContent p").text(data.postContent);
+      $("#createdAt p").text(data.createdAt);
+      $("#createUser p").text(data.user);
+      $("#artist p").text(` #${data.artist}` );
+      $("#song_title p").text(` #${data.song_title}`);
     })
     .catch((error) => {
       console.error("Error:", error);
