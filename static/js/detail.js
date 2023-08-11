@@ -75,17 +75,24 @@ function getPostId() {
 document.getElementById("comment-button").addEventListener("click", () => {
   const comment = document.getElementById("comment-input").value;
 
-  // 입력값이 없으면 전송을 중단
   if (!comment.trim()) {
     alert("댓글을 입력해주세요.");
     return;
   }
 
-  const payload = {
-    comment: comment,
-    // 필요하다면 여기에 추가적인 데이터를 추가할 수 있습니다.
-  };
+    // 로컬 스토리지에서 email, name, picture 가져오기
+    const userEmail = localStorage.getItem('email');
+    const userName = localStorage.getItem('name');
+    const userPicture = localStorage.getItem('picture'); 
+  
+    const payload = {
+      comment: comment,
+      email: userEmail,
+      name: userName,
+      picture: userPicture
+    };
 
+    
   fetch(`/detail/${postId}/comment`, {
     method: "POST",
     headers: {

@@ -109,6 +109,7 @@ def email_verification():
 @app.route('/signup/send-email', methods=['POST'])
 def send_verification_email():
     return send_email()
+
 # 인증번호 검증
 @app.route('/signup/verify-auth-code', methods=['POST'])
 def verify_auth_code():
@@ -127,9 +128,13 @@ def detail(post_id):
 @app.route('/detail/<post_id>/comment', methods=['POST'])
 def add_comment(post_id):
     comment = request.json.get('comment')
-    if not comment:
+    user_name = request.json.get('name')
+    user_picture = request.json.get('picture')
+
+    if not comment or not user_name or not user_picture:
         return jsonify({"message": "올바르지 않은 형식입니다."}), 400
-    if add_comment_to_db(post_id, comment):
+
+    if add_comment_to_db(post_id, comment, user_name, user_picture):
         return jsonify({"success": True})
     else:
         return jsonify({"success": False}), 400

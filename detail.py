@@ -20,15 +20,15 @@ def get_post_detail(post_id):
     else:
         return None
 
-def add_comment_to_db(post_id, comment):
+def add_comment_to_db(post_id, comment, user_name, user_picture):
     if not comment:
         return None
     
     comment_data = {
         "postId": post_id,
         "content": comment,
-        # "userName": "홍종훈",
-        # "userProfileImage": ""
+        "userName": user_name,
+        "userProfileImage": user_picture
     }
 
     # 댓글 저장
