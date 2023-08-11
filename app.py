@@ -197,7 +197,7 @@ def api_write():
         'song_title': title_receive,
         'artist': artist_receive,
         'img_url': image_url,
-        'createAT': date
+        'createdAt': date
     }
     db.posts.insert_one(doc)
     return jsonify({'msg': '저장 완료!'})
