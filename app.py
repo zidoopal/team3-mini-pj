@@ -178,6 +178,7 @@ def api_write():
     file = request.files['image_give']
     title_receive = request.form['song_title_give']
     artist_receive = request.form['artist_give']
+    user_receive = request.form['user_give']
     d = datetime.now()
     date = str(d.year)+'년 '+str(d.month)+'월 '+str(d.day)+' 일'
 
@@ -200,11 +201,11 @@ def api_write():
     # mongodb에 저장
     doc = {
         'postId': postId,
-        'user': '',
+        'user': user_receive,
         'song_title': title_receive,
         'artist': artist_receive,
         'img_url': image_url,
-        'createAT': date
+        'createdAt': date
     }
     db.posts.insert_one(doc)
     return jsonify({'msg': '저장 완료!'})

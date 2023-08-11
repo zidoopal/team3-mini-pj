@@ -4,6 +4,7 @@ function upload() {
   let image = document.querySelector("#image_upload").files[0];
   let song_title = document.querySelector("#song_title").value;
   let artist = document.querySelector("#artist").value;
+  const user = localStorage.getItem('name');
   console.log(image, song_title,artist)
 
   // 예외처리
@@ -12,6 +13,7 @@ function upload() {
     formData.append("image_give", image);
     formData.append("song_title_give", song_title);
     formData.append("artist_give", artist);
+    formData.append("user_give", user);
 
     fetch("/upload", { method: "POST", body: formData })
       .then((response) => response.json())
