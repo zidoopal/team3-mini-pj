@@ -15,11 +15,15 @@
     <script src="../static/js/common.js" type="module" defer></script>
     <script src="../static/js/main.js" type="module" defer></script>
 
-    <!-- jQuery -->
+    <!-- icon -->
     <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      src="https://kit.fontawesome.com/caa7486ade.js"
+      crossorigin="anonymous"
       defer
     ></script>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
     <div class="background">
@@ -46,9 +50,9 @@
                   ></i>
                 </li>
                 <!-- mypage icon -->
-                <li>
+                <!-- <li>
                   <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
-                </li>
+                </li> -->
 
                 <!-- login icon -->
                 <li>
@@ -59,12 +63,12 @@
                 </li>
 
                 <!-- logout icon -->
-                <li>
+                <!-- <li>
                   <i
                     class="fa-solid fa-right-from-bracket fa-2xl"
                     id="nav-logout-button"
                   ></i>
-                </li>
+                </li> -->
               </ul>
 
               <!-- login icon -->
@@ -105,25 +109,19 @@
           <!-- 사진 섹션 -->
           <section class="scroll">
             <div class="photo-section">
-              <div class="each-line">
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="tag" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag">#예시</p>
-                    <p id="date">2023.08.10<span id="userName">두팔쓰</span></p>
-                  </div>
+              <div class="photo-set">
+                <div class="artist-photo">
+                  <img src="" id="tag" />
+                </div>
+                <div class="photo-info">
+                  <p id="artistName"><span id="song_title"></span></p>
+                  <p id="date"><span id="userName"></span></p>
                 </div>
               </div>
             </div>
           </section>
-
-          
-    <!-- icon -->
-    <script
-      src="https://kit.fontawesome.com/caa7486ade.js"
-      crossorigin="anonymous"
-    ></script>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
