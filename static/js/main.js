@@ -18,7 +18,7 @@ function showPhoto() {
         let img_url = a['img_url'];
         let artistName = a['artist'];
         let songTitle = a['song_title'];
-        let date = a['createAT'];
+        let date = a['createdAt'];
         let photoSetHTML = `<div class="photo-set">
                                 <div class="artist-photo">
                                   <img src="${img_url}" />
