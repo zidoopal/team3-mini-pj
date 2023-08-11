@@ -14,6 +14,12 @@
     <script src="../static/js/header.js" type="module" defer></script>
     <script src="../static/js/common.js" type="module" defer></script>
     <script src="../static/js/main.js" type="module" defer></script>
+
+    <!-- jQuery -->
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
   </head>
   <body>
     <div class="background">
@@ -40,9 +46,9 @@
                   ></i>
                 </li>
                 <!-- mypage icon -->
-                <!-- <li>
+                <li>
                   <i class="fa-solid fa-user fa-2xl" id="nav-mypage-button"></i>
-                </li> -->
+                </li>
 
                 <!-- login icon -->
                 <li>
@@ -53,12 +59,12 @@
                 </li>
 
                 <!-- logout icon -->
-                <!-- <li>
+                <li>
                   <i
                     class="fa-solid fa-right-from-bracket fa-2xl"
                     id="nav-logout-button"
                   ></i>
-                </li> -->
+                </li>
               </ul>
 
               <!-- login icon -->
@@ -99,186 +105,21 @@
           <!-- 사진 섹션 -->
           <section class="scroll">
             <div class="photo-section">
-              <!-- 1 line -->
               <div class="each-line">
-                <!-- photo + info  1set -->
                 <div class="photo-set">
                   <div class="artist-photo">
-                    <img />
+                    <img id="tag" />
                   </div>
                   <div class="photo-info">
                     <p id="tag">#예시</p>
-                    <p id="date">2023.08.10<span id="user">두팔쓰</span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 2 line -->
-              <div class="each-line">
-                <!-- photo + info  1set -->
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 3 line -->
-              <div class="each-line">
-                <!-- photo + info  1set -->
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-              </div>
-
-              <!-- 4 line -->
-              <div class="each-line">
-                <!-- photo + info  1set -->
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
-                  </div>
-                </div>
-
-                <div class="photo-set">
-                  <div class="artist-photo">
-                    <img id="artist-photo" />
-                  </div>
-                  <div class="photo-info">
-                    <p id="tag"></p>
-                    <p id="date"><span id="user"></span></p>
+                    <p id="date">2023.08.10<span id="userName">두팔쓰</span></p>
                   </div>
                 </div>
               </div>
             </div>
           </section>
-        </div>
-      </div>
-    </div>
+
+          
     <!-- icon -->
     <script
       src="https://kit.fontawesome.com/caa7486ade.js"
